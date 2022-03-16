@@ -1,0 +1,20 @@
+.marca {
+    border-radius: 50%;
+}
+.contenedor-marca{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    text-align: center;
+}
+.ul-navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.li-navBar{
+    margin: 10px;
+}
