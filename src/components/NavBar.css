@@ -1,5 +1,6 @@
 .marca {
     border-radius: 50%;
+    width: 60%;
 }
 .contenedor-marca{
     display: flex;
@@ -9,6 +10,11 @@
 }
 h1{
     text-align: center;
+    color: rgb(22, 192, 59);
+}
+h2{
+    text-align: center;
+    color: rgb(22, 192, 59);
 }
 .ul-navBar{
     display: flex;

@@ -1,6 +1,6 @@
 import marca from './lupinos.jpg';
 import './NavBar.css';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartWidget from './CartWidget';
 
 function NavBar() {
     return (
@@ -8,9 +8,12 @@ function NavBar() {
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <div className="contenedor-marca">
-                    <img className="marca" src={marca} alt="marca del vivero 'Los Lupinos'" />
-                    <h1><a className="navbar-brand" href="#" >Los Lupinos</a></h1>
+                <div>
+                    <a className="navbar-brand contenedor-marca " href="#" >
+                        <img className="marca" src={marca} alt="marca del vivero 'Los Lupinos'" />
+                        <h1>Los Lupinos</h1>
+                    </a>
+
                 </div>
                 <div>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 ul-navBar">
@@ -24,23 +27,11 @@ function NavBar() {
                             <a className="nav-link active" href="#" >Contacto</a>
                         </li>
                     </ul>
-
-
-
-                    
                 </div>
-                <ShoppingCartIcon />
 
+                <CartWidget />
             </div>
-
-
         </nav>
-
-
-
-
-
-
     )
 }
 
