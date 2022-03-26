@@ -6,7 +6,7 @@ export default function Item({ id, title, price, pictureUrl }) {
             <div className="card text-center">
                 <img src={pictureUrl} className="card-img-top" />
                 <div className="card-body">
-                    <h1 className="card-title">{title}</h1>
+                    <h2 className="card-title">{title}</h2>
                     <p className="card-text">${price}</p>
                     <button className='button'>ver detalle</button>
                 </div>

@@ -5,7 +5,7 @@ import './ItemList.css'
 export default function ItemList({ products }) {
     return (
         <div>
-            <h1>Catálogo de productos</h1>
+            <h2>Catálogo de productos</h2>
             <div >
 
                 <div className='col-sm-12 card-container'>

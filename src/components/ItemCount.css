@@ -3,18 +3,22 @@
     flex-direction: column;
     justify-content: center;
     width: 15%;
-    background-color: rgb(238, 238, 238);
+    background-color: var(--verdeAgua);
 }
 
 .countButtons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-color: gray;
+    border-color: var(--petroleo);
 }
 
 .button {
-    background-color: lightgreen;
+    background-color: var(--verdeClaro);
+}
+.button:hover{
+    background-color: var(--verdeAgua);
+
 }
 
 .value {

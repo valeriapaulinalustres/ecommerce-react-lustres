@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import ItemCount from './ItemCount.js';
 import ItemList from './ItemList.js';
+import Loading from './Loading';
 
 //array de productos
 const data = [
@@ -11,14 +12,18 @@ const data = [
 
 ]
 
+
+
 //promesa para obtener el array, con setTimeout para simular delay 
 const promise = new Promise((res, rej) => {
     setTimeout(() => {
         if (data == 0) {
             rej("no hay productos disponibles")
+
         } else {
             res(data)
-            console.log(data)
+            console.log(data);
+    
         }
 
     }, 2000);
@@ -27,10 +32,21 @@ const promise = new Promise((res, rej) => {
 export function ItemListContainer({ greeting }) {
 
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+
+
+
+
+
+
+    
 
     useEffect(() => {
 
         promise.then((products) => {
+            setLoading(false)
             setProducts(products);
         })
             .catch(() => {
@@ -48,7 +64,11 @@ export function ItemListContainer({ greeting }) {
         <div>
             <h2>Bienvenido {greeting}</h2>
             <ItemCount stock={5} initial={1} onAdd={onAdd} />
-            <ItemList products={products} />
+            
+            {loading
+            ?(<Loading/>)
+        : (<ItemList products={products} />)
+        }
         </div>
 
     )
