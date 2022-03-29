@@ -2,7 +2,7 @@ import './Item.css'
 
 export default function Item({ id, title, price, pictureUrl }) {
     return (
-        <div className="a-card" >
+        <a href="" className="a-card" >
             <div className="card text-center">
                 <img src={pictureUrl} className="card-img-top" />
                 <div className="card-body">
@@ -12,7 +12,7 @@ export default function Item({ id, title, price, pictureUrl }) {
                 </div>
             </div>
 
-        </div>
+        </a>
 
     )
 }
