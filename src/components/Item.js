@@ -1,8 +1,10 @@
+import { NavLink, Link } from 'react-router-dom';
 import './Item.css'
 
 export default function Item({ id, title, price, pictureUrl }) {
+    // console.log(id)
     return (
-        <a href="" className="a-card" >
+        <NavLink to={`item/${id}`} className="a-card" >
             <div className="card text-center">
                 <img src={pictureUrl} className="card-img-top" />
                 <div className="card-body">
@@ -11,8 +13,8 @@ export default function Item({ id, title, price, pictureUrl }) {
                     <button className='button'>ver detalle</button>
                 </div>
             </div>
-
-        </a>
-
+        </NavLink>
     )
 }
+
+

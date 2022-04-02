@@ -1,37 +1,37 @@
 import marca from './lupinos.jpg';
 import './NavBar.css';
 import CartWidget from './CartWidget';
+import { NavLink, Link } from 'react-router-dom';
 
-function NavBar() {
+
+
+function NavBar({ greetingName }) {
+
+    const categories = [
+        { categoryName: "Interior", route: "categories/interior", id: 1 },
+        { categoryName: "Anuales", route: "categories/anuales", id: 2 },
+        { categoryName: "Perennes", route: "categories/perennes", id: 3 },
+        { categoryName: "Cactus", route: "categories/cactus", id: 4 }
+    ]
+
     return (
-
-
-        <nav>
+        <div>
             <div className="navbar-contenedor">
                 <div>
-                    <a className="navbar-contenedor-marca " href="#" >
+                    <NavLink to="/" className="navbar-contenedor-marca">
                         <img className="marca" src={marca} alt="marca del vivero 'Los Lupinos'" />
                         <h1 className='marca-nombre' >Los Lupinos</h1>
-                    </a>
-
+                    </NavLink>
                 </div>
-                <div>
-                    <ul className="navbar-contenedor-links">
-                        <li className="navbar-li">
-                            <a className="navbar-link" href="#" >Productos</a>
-                        </li>
-                        <li className="navbar-li">
-                            <a className="navbar-link" href="#" >Servicios</a>
-                        </li>
-                        <li className="navbar-li">
-                            <a className="navbar-link" href="#" >Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <CartWidget />
+                <h2>Bienvenido {greetingName}</h2>
+                <nav>
+                    {categories.map((element) => {
+                        return (<NavLink to={element.route} className="navbar-link">{element.categoryName}</NavLink>)
+                    })}
+                </nav>
+                <NavLink to="/cart"><CartWidget /></NavLink>
             </div>
-        </nav>
+        </div>
     )
 }
 
