@@ -8,10 +8,10 @@ import { NavLink, Link } from 'react-router-dom';
 function NavBar({ greetingName }) {
 
     const categories = [
-        { categoryName: "Interior", route: "categories/interior", id: 1 },
-        { categoryName: "Anuales", route: "categories/anuales", id: 2 },
-        { categoryName: "Perennes", route: "categories/perennes", id: 3 },
-        { categoryName: "Cactus", route: "categories/cactus", id: 4 }
+        { categoryName: "Men", route: "categories/men's%20clothing", id: 1 },
+        { categoryName: "Women", route: "categories/women's%20clothing", id: 2 },
+        { categoryName: "Jewelery", route: "categories/jewelery", id: 3 },
+        { categoryName: "Electronics", route: "categories/electronics", id: 4 }
     ]
 
     return (

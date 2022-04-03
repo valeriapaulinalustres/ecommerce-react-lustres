@@ -3,7 +3,10 @@ import ItemCount from './ItemCount.js';
 import ItemList from './ItemList.js';
 import Loading from './Loading';
 import { useParams } from 'react-router-dom';
+import ItemDetailContainer from './ItemDetailContainer.js';
+/*
 
+ASÍ FUNCIONABA ANTES
 //array de productos
 const data = [
     { id: 1, title: "Gardenia", price: 500, pictureUrl: "https://media.istockphoto.com/photos/gardenia-jasminoides-picture-id501234446?b=1&k=20&m=501234446&s=170667a&w=0&h=HYv2_quh3SdIyqgd4tGEgfu9mOirCTWEgI9Yc6bepN4=", category: "perennes", description: "lorem..." },
@@ -59,14 +62,87 @@ export function ItemListContainer({ greeting }) {
         console.log(counter);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+export function ItemListContainer({ greeting }) {
+
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [filtered, setFiltered] = useState([])
+
+    //para atrapar el id de la categoría/link cliqueada
+    const { linkName } = useParams()
+    //   console.log(linkName)
+
+const url= "https://fakestoreapi.com/products"
+
+const getItems = async (url) =>{
+    try{
+        const response = await fetch (url);
+        const data = await response.json();
+        setProducts(data);
+        setFiltered(data);
+       
+    }
+    catch {
+        setError(true)
+    }
+   finally {
+    setLoading(false);
+   }
+   
+}
+
+useEffect(() => {
+  getItems(url)
+
+ 
+}, [linkName])
+
+useEffect(() => {
+   
+    if (linkName) {
+        const filteredProducts = products.filter(product => product.category === linkName)
+        //console.log(filteredProducts);
+        setFiltered(filteredProducts);
+        setLoading(false)
+    } else {
+        setLoading(false);
+        setFiltered(products);
+    }
+   
+  }, [linkName])
+
+
+
+    //función que pasa a su hijo ItemCount para el evento del botón "agregar al carrito"
+    const onAdd = (counter) => {
+        console.log(counter);
+    }
+
     return (
         <div>
             <h2>{greeting}</h2>
             <ItemCount stock={5} initial={1} onAdd={onAdd} />
             {loading
                 ? (<Loading />)
-                : (<ItemList products={products} />)
+                : error
+                ? <span>error</span>
+                : (<ItemList filtered={filtered} />)
             }
+            
         </div>
     )
 }
