@@ -81,49 +81,51 @@ export function ItemListContainer({ greeting }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [filtered, setFiltered] = useState([])
+    const [productsToDetail, setProductsToDetail] = useState([])
 
     //para atrapar el id de la categoría/link cliqueada
     const { linkName } = useParams()
     //   console.log(linkName)
 
-const url= "https://fakestoreapi.com/products"
+    const url = "https://fakestoreapi.com/products"
 
-const getItems = async (url) =>{
-    try{
-        const response = await fetch (url);
-        const data = await response.json();
-        setProducts(data);
-        setFiltered(data);
-       
+    const getItems = async (url) => {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            setProducts(data);
+            setFiltered(data);
+            setProductsToDetail(data);
+
+        }
+        catch {
+            setError(true)
+        }
+        finally {
+            setLoading(false);
+        }
+
     }
-    catch {
-        setError(true)
-    }
-   finally {
-    setLoading(false);
-   }
-   
-}
 
-useEffect(() => {
-  getItems(url)
+    useEffect(() => {
+        getItems(url)
 
- 
-}, [linkName])
 
-useEffect(() => {
-   
-    if (linkName) {
-        const filteredProducts = products.filter(product => product.category === linkName)
-        //console.log(filteredProducts);
-        setFiltered(filteredProducts);
-        setLoading(false)
-    } else {
-        setLoading(false);
-        setFiltered(products);
-    }
-   
-  }, [linkName])
+    }, [linkName])
+
+    useEffect(() => {
+
+        if (linkName) {
+            const filteredProducts = products.filter(product => product.category === linkName)
+            //console.log(filteredProducts);
+            setFiltered(filteredProducts);
+            setLoading(false)
+        } else {
+            setLoading(false);
+            setFiltered(products);
+        }
+
+    }, [linkName])
 
 
 
@@ -133,16 +135,20 @@ useEffect(() => {
     }
 
     return (
-        <div>
-            <h2>{greeting}</h2>
-            <ItemCount stock={5} initial={1} onAdd={onAdd} />
-            {loading
-                ? (<Loading />)
-                : error
-                ? <span>error</span>
-                : (<ItemList filtered={filtered} />)
-            }
-            
-        </div>
+        <>
+            <div>
+                <h2>{greeting}</h2>
+                <ItemCount stock={5} initial={1} onAdd={onAdd} />
+                {loading
+                    ? (<Loading />)
+                    : error
+                        ? <span>error</span>
+                        : (<ItemList filtered={filtered} />)
+
+                }
+
+            </div>
+            <ItemDetailContainer products={productsToDetail} />
+        </>
     )
 }

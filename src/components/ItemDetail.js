@@ -5,7 +5,7 @@ function ItemDetail({ item }) {
     return (
         <div className="a-card" >
             <h2>ItemDetail</h2>
-            {/*
+            
             <div className="card text-center">
                 <img src={item[0].image} className="card-img-top" />
                 <div className="card-body">
@@ -15,7 +15,7 @@ function ItemDetail({ item }) {
                     <p className="card-text">Descripción: {item[0].description}</p>
                 </div>
             </div>
-            */}
+            
         </div>
     )
 }
