@@ -7,9 +7,9 @@ export default function ItemList({ filtered }) {
     // console.log(products)
     return (
         <div >
-            <div className='col-sm-2 card-container'>
+            <div className=' card-container'>
                 {filtered.map((item, index) => (
-                    <Item key={index} title={item.title} price={item.price} image={item.image} id={item.id} />
+                    <Item key={index} title={item.title} price={item.price} pictureUrl={item.pictureUrl} id={item.id} />
                 ))}
                
             </div>
