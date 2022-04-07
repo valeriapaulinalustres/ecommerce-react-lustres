@@ -27,7 +27,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     return (
         <div className="countContainer">
-            <h3>(arbolito)</h3>
+           
             <div className="countButtons">
                 <button className="button" onClick={decrease}>➖</button>
                 <span className="value">{counter}</span>

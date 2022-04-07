@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ItemCount from './ItemCount.js';
+
 import ItemList from './ItemList.js';
 import Loading from './Loading';
 import { useParams } from 'react-router-dom';
@@ -49,13 +49,7 @@ export function ItemListContainer({ greeting }) {
             })
     }, [linkName]);
 
-    //función que pasa a su hijo ItemCount para el evento del botón "agregar al carrito"
-    const onAdd = (counter) => {
-        console.log(counter);
-    }
-
-
-
+    
 
 
 
@@ -144,7 +138,7 @@ export function ItemListContainer({ greeting }) {
         <>
             <div>
                 <h2>{greeting}</h2>
-                <ItemCount stock={5} initial={1} onAdd={onAdd} />
+                
                 {loading
                     ? (<Loading />)
                    
