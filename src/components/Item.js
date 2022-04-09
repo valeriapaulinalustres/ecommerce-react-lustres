@@ -1,5 +1,6 @@
 import { NavLink, Link } from 'react-router-dom';
-import './Item.css'
+import './Item.css';
+
 
 export default function Item({ id, title, price, pictureUrl}) {
 

@@ -25,8 +25,8 @@ function NavBar({ greetingName }) {
                 </div>
                 <h2>Bienvenido {greetingName}</h2>
                 <nav>
-                    {categories.map((element) => {
-                        return (<NavLink to={element.route} className="navbar-link">{element.categoryName}</NavLink>)
+                    {categories.map((element,index) => {
+                        return (<NavLink to={element.route} className="navbar-link" key={index}>{element.categoryName}</NavLink>)
                     })}
                 </nav>
                 <NavLink to="/cart"><CartWidget /></NavLink>

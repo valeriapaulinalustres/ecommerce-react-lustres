@@ -5,7 +5,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     //destructuración 
     const [counter, setCounter] = useState(initial);
-
+//console.log(counter)
     //evento del botón de suma
     const increase = () => {
         counter < stock
@@ -26,8 +26,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     return (
-        <div className="countContainer">
-           
+        <div className="countContainer">          
             <div className="countButtons">
                 <button className="button" onClick={decrease}>➖</button>
                 <span className="value">{counter}</span>
