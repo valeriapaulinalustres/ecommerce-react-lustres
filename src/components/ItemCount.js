@@ -1,16 +1,40 @@
 import { useState } from "react";
-import './ItemCount.css'
+import './ItemCount.css';
+//para poder usar context trae estas dos importaciones:
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, itemId }) => {
+
+    //trae cosas desde el context
+    const { compra } = useContext(CartContext);
+    //console.log(compra)
+
+    //obtengo el índice del objeto del carrito al cual voy a volver a comprar
+    let itemIndex = compra.findIndex(el => el.id == itemId);
+
+    // condicional para que "comprados" sea la cantidad de items que ya tiene el carrito
+    let comprados = 0
+
+    if (compra.length == 0) {
+        comprados = 0
+    } else {
+        if (itemIndex !== -1) { comprados = compra[itemIndex].cantidad }
+    }
+
+    //        console.log(comprados)
+    //stock viene de data.js 
+    const itemsInStock = stock - comprados
+    console.log(itemsInStock)
 
     //destructuración 
     const [counter, setCounter] = useState(initial);
-//console.log(counter)
+    //console.log(counter)
     //evento del botón de suma
     const increase = () => {
-        counter < stock
+        counter < itemsInStock// debería ser counter < itemsInStock  (stock - compra.quantity)
             ? setCounter(counter + 1)
-            : alert("no hay suficiente stock");
+            : alert("no hay suficiente stock, ya tiene en el carrito:" + comprados);
     }
 
     //evento del botón de resta
@@ -26,7 +50,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     return (
-        <div className="countContainer">          
+        <div className="countContainer">
             <div className="countButtons">
                 <button className="button" onClick={decrease}>➖</button>
                 <span className="value">{counter}</span>
