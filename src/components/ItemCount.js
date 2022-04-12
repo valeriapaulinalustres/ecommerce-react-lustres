@@ -34,7 +34,7 @@ const ItemCount = ({ stock, initial, onAdd, itemId }) => {
     const increase = () => {
         counter < itemsInStock// debería ser counter < itemsInStock  (stock - compra.quantity)
             ? setCounter(counter + 1)
-            : alert("no hay suficiente stock, ya tiene en el carrito:" + comprados);
+            : alert("No hay suficiente stock. Usted ya tiene en el carrito: " + comprados + " unidades.");
     }
 
     //evento del botón de resta

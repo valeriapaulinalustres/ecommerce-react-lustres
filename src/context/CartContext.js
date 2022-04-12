@@ -53,8 +53,42 @@ const CartProvider = ({ children }) => {
   }
 
 
+
+
+//para calcular total de la compra
+let totalCompra = 0;
+const total = (array) =>{
+  let subtotal = 0;
+ 
+  array.forEach(element => {
+    subtotal = element.cantidad * element.precio;
+   // console.log(subtotal)
+totalCompra = totalCompra + subtotal;
+return totalCompra;
+    
+  });
+}
+total(compra)
+//console.log(totalCompra);
+
+
+//para calcular el numerito del cartWidget
+
+let numberWidget=0;
+const itemsQuantity = (array) =>{
+  array.forEach(element => {
+    numberWidget = numberWidget + element.cantidad;
+    
+  });
+}
+itemsQuantity(compra);
+console.log(numberWidget);
+
+
+
+
   //pongo en data todo lo que quiero compartir con los componentes
-  const data = { compra, addItem, removeItem, clear, isInCart }
+  const data = { compra, addItem, removeItem, clear, isInCart, totalCompra, numberWidget }
 
   return (
     <CartContext.Provider value={data}>

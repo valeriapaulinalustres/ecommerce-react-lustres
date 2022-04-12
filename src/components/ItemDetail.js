@@ -46,7 +46,7 @@ function ItemDetail({ item }) {
                     </div>
                     <div className='detail-buttons'>
                         {buy
-                            ? (<ItemCount stock={item[0].stock} initial={1} onAdd={onAdd} itemId={item[0].id}/>)
+                            ? (<ItemCount stock={item[0].stock} initial={1} onAdd={onAdd} itemId={item[0].id} />)
                             : (<NavLink to="/cart"><button id={item[0].id} className="button" onClick={handleAddClick} >Finalizar compra</button></NavLink>)
                         }
                     </div>
