@@ -2,6 +2,7 @@ import marca from './lupinos.jpg';
 import './NavBar.css';
 import CartWidget from './CartWidget';
 import { NavLink, Link } from 'react-router-dom';
+import * as mdb from 'mdb-ui-kit';
 
 
 
@@ -14,8 +15,9 @@ function NavBar({ greetingName }) {
         { categoryName: "Cactus", route: "categories/cactus", id: 4 }
     ]
 
+
     return (
-        <div>
+        <div className='container-navbar'>
             <div className="navbar-contenedor">
                 <div>
                     <NavLink to="/" className="navbar-contenedor-marca">
@@ -24,16 +26,16 @@ function NavBar({ greetingName }) {
                     </NavLink>
                 </div>
                 <h2>Bienvenido {greetingName}</h2>
-                <nav>
-                    {categories.map((element,index) => {
-                        return (<NavLink to={element.route} className="navbar-link" key={index}>{element.categoryName}</NavLink>)
-                    })}
-                </nav>
-                <NavLink to="/cart"><CartWidget /></NavLink>
+
+                <NavLink to="/cart" className="cartWidgetContainer"><CartWidget /></NavLink>
             </div>
+            <nav>
+                {categories.map((element, index) => {
+                    return (<NavLink to={element.route} className="navbar-link" key={index}>{element.categoryName}</NavLink>)
+                })}
+            </nav>
         </div>
     )
 }
 
 export default NavBar;
-//navbar navbar-expand-lg navbar-light bg-light 

@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import CartContext from '../context/CartContext';
 import CartItems from './CartItems';
 import { NavLink, Link } from 'react-router-dom';
-
+import styled from 'styled-components';
 
 
 function Cart() {
@@ -21,33 +21,57 @@ function Cart() {
 
 
   return (
-    <div>
+    <Container>
       <h2>Bienvenido al carrito de compras</h2>
       {compra.length === 0
-      ? (<div>
-        <p>Su carrito está vacío</p>
+      ? (<>
+        <h4>Su carrito está vacío</h4>
         <NavLink to="/">
-        <button>Comenzar a comprar</button>
+        <button className="button">Comenzar a comprar</button>
         </NavLink>
         
-      </div>)
-      :(<div>
-        <button onClick={handleReset}>Vaciar carrito</button>
+      </>)
+      :(<>
+        <ContainerTotalVaciar>
+        <h3>Total: $ {totalCompra}</h3>
+        <button onClick={handleReset} className="button">Vaciar carrito</button>
+        </ContainerTotalVaciar>
+        
         <div className=' card-container'>
           {compra.map((item, index) => (
-            <CartItems key={index} title={item.nombre} price={item.precio} quantity={item.cantidad} id={item.id}/>
+            <CartItems key={index} title={item.nombre} price={item.precio} quantity={item.cantidad} id={item.id} pictureUrl = {item.imagen}/>
           ))}
         </div>
-        <span>Total: $ {totalCompra}</span>
-        </div>
+        
+        </>
 
       )
     }
       
       
      
-    </div>
+    </Container>
   )
 }
 
 export default Cart
+
+const Container = styled.div `
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+h2{margin: 15px;}
+h4{
+  color: var(--verdeClaro);
+  text-align: center;
+}
+
+`;
+const ContainerTotalVaciar = styled.div`
+width: 70%;
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+`

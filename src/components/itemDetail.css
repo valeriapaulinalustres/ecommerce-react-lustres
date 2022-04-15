@@ -19,3 +19,34 @@
     width: 20%;
     margin: 10px;
 }
+p{
+    color: var(--petroleo);
+}
+
+@media only screen and (max-width:900px) {
+    .detail-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+.detail-container-son{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.detail-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    padding: 10px;
+    width: 200px;
+    margin: 10px;
+}
+}

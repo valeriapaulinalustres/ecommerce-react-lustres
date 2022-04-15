@@ -26,7 +26,7 @@ function ItemDetail({ item }) {
     const handleAddClick = (event) => {
 
         //describe las propiedades de cada objeto del array del carrito ("compra")
-        let newProduct = { nombre: item[0].title, precio: item[0].price, id: item[0].id, cantidad: added }
+        let newProduct = { nombre: item[0].title, precio: item[0].price, id: item[0].id, imagen: item[0].pictureUrl, cantidad: added }
 
         //console.log(newProduct);
         isInCart(newProduct)

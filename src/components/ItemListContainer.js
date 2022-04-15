@@ -137,7 +137,7 @@ export function ItemListContainer({ greeting }) {
     return (
         <>
             <div>
-                <h2>{greeting}</h2>
+                <h2>{greeting}: {linkName}</h2>
                 
                 {loading
                     ? (<Loading />)
