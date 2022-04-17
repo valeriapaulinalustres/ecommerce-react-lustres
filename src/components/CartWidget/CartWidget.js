@@ -1,6 +1,6 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useContext } from 'react';
-import CartContext from '../context/CartContext';
+import CartContext from '../../context/CartContext.js';
 import './CartWidget.css';
 
 

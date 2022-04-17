@@ -1,10 +1,10 @@
-import NavBar from './components/NavBar';
-import { ItemListContainer } from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import NavBar from './components/NavBar/NavBar';
+import { ItemListContainer } from './containers/ItemList/ItemListContainer';
+import ItemDetailContainer from './containers/ItemDetail/ItemDetailContainer';
 //para englobar la vista que cambiará continuamente
 import { Routes, Route } from 'react-router-dom';
-import Cart from './components/Cart';
-import ErrorNotFound from './components/ErrorNotFound';
+import Cart from './components/Cart/Cart';
+import ErrorNotFound from './components/Loading/ErrorNotFound';
 //importar contexto
 import {CartProvider} from './context/CartContext'
 

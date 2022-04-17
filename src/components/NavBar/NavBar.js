@@ -1,6 +1,6 @@
-import marca from './lupinos.jpg';
+import marca from '../../img/lupinos.jpg';
 import './NavBar.css';
-import CartWidget from './CartWidget';
+import CartWidget from '../CartWidget/CartWidget';
 import { NavLink, Link } from 'react-router-dom';
 import * as mdb from 'mdb-ui-kit';
 

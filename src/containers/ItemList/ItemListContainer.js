@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import ItemList from './ItemList.js';
-import Loading from './Loading';
+import ItemList from '../../components/ItemList/ItemList.js';
+import Loading from '../../components/Loading/Loading.js';
 import { useParams } from 'react-router-dom';
-import ItemDetailContainer from './ItemDetailContainer.js';
 import { ProductionQuantityLimits } from '@mui/icons-material';
-import {data} from '../mocks/data'
+import {data} from '../../mocks/data.js'
 
 
 

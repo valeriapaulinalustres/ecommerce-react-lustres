@@ -2,8 +2,8 @@
 import React from 'react';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
-import CartContext from '../context/CartContext';
-import CartItems from './CartItems';
+import CartContext from '../../context/CartContext';
+import CartItems from '../CartItems/CartItems';
 import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 

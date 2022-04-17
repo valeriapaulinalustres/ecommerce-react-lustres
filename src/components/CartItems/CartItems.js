@@ -1,7 +1,7 @@
 import React from 'react';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
-import CartContext from '../context/CartContext';
+import CartContext from '../../context/CartContext';
 import './CartItems.css';
 
 

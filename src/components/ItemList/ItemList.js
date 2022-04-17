@@ -1,5 +1,5 @@
-import Item from './Item.js';
-import ItemDetailContainer from './ItemDetailContainer.js';
+import Item from '../Item/Item.js';
+
 import './ItemList.css'
 
 

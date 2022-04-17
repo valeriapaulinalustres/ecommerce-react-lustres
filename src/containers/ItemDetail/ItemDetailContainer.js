@@ -1,9 +1,9 @@
 //rfce
 import { useEffect, useState } from 'react';
-import Loading from "./Loading";
-import ItemDetail from "./ItemDetail";
+import Loading from "../../components/Loading/Loading.js";
+import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { useParams } from 'react-router-dom';
-import {data} from '../mocks/data';
+import {data} from '../../mocks/data';
 import './itemDetailContainer.css'
 
 

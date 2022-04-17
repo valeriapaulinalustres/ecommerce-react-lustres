@@ -1,11 +1,11 @@
-import './itemDetailContainer.css';
-import ItemCount from './ItemCount.js';
+import '../../containers/ItemDetail/itemDetailContainer.css';
+import ItemCount from '../ItemCount/ItemCount.js';
 import { useState } from 'react';
 import './itemDetail.css';
 import { NavLink, Link } from 'react-router-dom';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
-import CartContext from '../context/CartContext';
+import CartContext from '../../context/CartContext';
 
 function ItemDetail({ item }) {
 

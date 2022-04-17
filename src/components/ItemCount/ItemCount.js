@@ -2,7 +2,7 @@ import { useState } from "react";
 import './ItemCount.css';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
-import CartContext from '../context/CartContext';
+import CartContext from '../../context/CartContext';
 
 const ItemCount = ({ stock, initial, onAdd, itemId }) => {
 

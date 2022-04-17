@@ -1,10 +1,10 @@
 .cartIcon{
     color: var(--petroleo
-    );
+);
     
 }
 .cartCircle{
-    color: var(--verdeOscuro);
+    color: white;
     background-color: var(--verdeClaro
     );
     width: 23px;
@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 5px;
     
 
 
