@@ -4,7 +4,10 @@ import Loading from "../../components/Loading/Loading.js";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { useParams } from 'react-router-dom';
 import {data} from '../../mocks/data';
-import './itemDetailContainer.css'
+import './itemDetailContainer.css';
+//firebase
+import {db} from "../../firebase/firebase.js";
+import {collection, doc, getDoc} from "firebase/firestore"
 
 
 
@@ -28,6 +31,36 @@ function ItemDetailContainer() {
    
     //console.log(id)
    
+useEffect(() => {
+  const productsCollection = collection(db, "ItemCollection");
+  const refDoc = doc(productsCollection,id);
+  getDoc(refDoc)
+  .then((result)=>{
+
+const product = result.data();
+//console.log(product);
+
+const productConId = {...product, id}
+
+
+
+
+      setItem(productConId);
+      //mostrar el producto seleccionado:
+//console.log(productConId);
+  })
+  .catch(() => {
+    console.log("error")
+})
+.finally(()=>{
+    setLoading(false)
+})
+}, [id])
+
+
+
+/*
+HARDCODEADO
 
     useEffect(() => {
         getItem.then((item) => {
@@ -46,7 +79,7 @@ function ItemDetailContainer() {
     }, [id]);
 //    console.log(item);
 
-
+*/
 
 
 

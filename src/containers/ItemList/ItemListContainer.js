@@ -4,9 +4,12 @@ import ItemList from '../../components/ItemList/ItemList.js';
 import Loading from '../../components/Loading/Loading.js';
 import { useParams } from 'react-router-dom';
 import { ProductionQuantityLimits } from '@mui/icons-material';
-import {data} from '../../mocks/data.js'
+import {data} from '../../mocks/data.js';
+//firebase
+import {db} from "../../firebase/firebase.js";
+import {getDocs, collection, query, where, getDoc} from "firebase/firestore";
 
-
+//console.log(db);
 
 //promesa para obtener el array, con setTimeout para simular delay 
 const promise = new Promise((res, rej) => {
@@ -29,8 +32,51 @@ export function ItemListContainer({ greeting }) {
     const { linkName } = useParams()
     //   console.log(linkName)
 
-    useEffect(() => {
 
+    //con Firestore
+    useEffect(() => {
+const productsCollection = collection(db,"ItemCollection")
+getDocs(productsCollection)
+.then ((result)=> {
+    //console.log(result)
+    const docs = result.docs
+   
+    const lista = docs.map(producto => {
+//para traer el id generado automáticamente:
+const id = producto.id;
+//se agrega ese id a las propiedades del objeto producto
+const product = {
+    id,
+    ...producto.data()
+}
+
+        return product;
+    })
+    //console.log(lista);
+    if (linkName) {
+        const filteredProducts = lista.filter(product => product.category === linkName)
+        //console.log(filteredProducts);
+        setProducts(filteredProducts);
+      
+        //const q = query (productsCollection, where ("category", "==", linkName))
+//getDocs(q)
+//console.log(docs)
+    } else {
+        setProducts(lista);
+    }
+})
+.catch(() => {
+    console.log("error")
+})
+.finally(()=>{
+    setLoading(false)
+})
+}, [linkName]);
+
+
+/* hardcodeado:
+
+ useEffect(() => {
         promise.then((products) => {
             // console.log (products[2].category)
             if (linkName) {
@@ -46,8 +92,9 @@ export function ItemListContainer({ greeting }) {
             .catch(() => {
                 console.log("error")
             })
+            
     }, [linkName]);
-
+*/
     
 
 

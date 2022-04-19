@@ -1,3 +1,4 @@
+import { PriceCheckRounded } from '@mui/icons-material';
 import React from 'react';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
@@ -25,6 +26,7 @@ function CartItems({ title, price, pictureUrl, quantity, id }) {
         <h2 className="card-title">{title}</h2>
         <p className="card-text">${price}</p>
         <p className="card-text">Cantidad: {quantity}</p>
+        <p className="card-text">Subtotal: $ {quantity * price}</p>
         <button className='button' onClick={handleDeleteItem} id={id}>X</button>
       </div>
     </div>

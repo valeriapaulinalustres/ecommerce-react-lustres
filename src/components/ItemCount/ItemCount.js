@@ -3,6 +3,9 @@ import './ItemCount.css';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
+//toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount = ({ stock, initial, onAdd, itemId }) => {
 
@@ -35,7 +38,10 @@ const ItemCount = ({ stock, initial, onAdd, itemId }) => {
         counter < itemsInStock// debería ser counter < itemsInStock  (stock - compra.quantity)
             ? setCounter(counter + 1)
             : alert("No hay suficiente stock. Usted ya tiene en el carrito: " + comprados + " unidades.");
+            
     }
+
+
 
     //evento del botón de resta
     const decrease = () => {

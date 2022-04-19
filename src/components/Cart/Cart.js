@@ -18,7 +18,23 @@ function Cart() {
     clear()
     //console.log("clear")
   }
+   
+ //calcula total de la compra
+  let suma = 0;
+  const total1 = () => {
+    suma=0;
+    let subtotal = 0;
 
+    compra.forEach(element => {
+      subtotal = element.cantidad * element.precio;
+      // console.log(subtotal)
+      suma = suma + subtotal;
+      
+    });
+    
+    return suma;
+  }
+  total1()
 
   return (
     <Container>
@@ -33,7 +49,7 @@ function Cart() {
       </>)
       :(<>
         <ContainerTotalVaciar>
-        <h3>Total: $ {totalCompra}</h3>
+        <h3>Total: $ {suma}</h3>
         <button onClick={handleReset} className="button">Vaciar carrito</button>
         </ContainerTotalVaciar>
         

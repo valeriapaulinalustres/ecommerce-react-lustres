@@ -26,33 +26,33 @@ function ItemDetail({ item }) {
     const handleAddClick = (event) => {
 
         //describe las propiedades de cada objeto del array del carrito ("compra")
-        let newProduct = { nombre: item[0].title, precio: item[0].price, id: item[0].id, imagen: item[0].pictureUrl, cantidad: added }
-
+        let newProduct = { nombre: item.title, precio: item.price, id: item.id, imagen: item.pictureUrl, cantidad: added }
+//console.log(item.id);
         //console.log(newProduct);
         isInCart(newProduct)
         addItem(newProduct, added);
     }
 
-    // console.log(item);
+     //console.log(item.title);
     return (
         <div className="detail-container">
             <div className="detail-container-son">
-                <img src={item[0].pictureUrl} className="detail-image" width="100%" />
+                <img src={item.pictureUrl} className="detail-image" width="100%" />
                 <div className="detail-details">
                     <div className="j">
-                        <h2 className="detail-title">{item[0].title}</h2>
-                        <p className="detail-text">Precio ${item[0].price}</p>
-                        <p className="detail-text">Stock disponible: {item[0].stock}</p>
+                        <h2 className="detail-title">{item.title}</h2>
+                        <p className="detail-text">Precio ${item.price}</p>
+                        <p className="detail-text">Stock disponible: {item.stock}</p>
                     </div>
                     <div className='detail-buttons'>
                         {buy
-                            ? (<ItemCount stock={item[0].stock} initial={1} onAdd={onAdd} itemId={item[0].id} />)
-                            : (<NavLink to="/cart"><button id={item[0].id} className="button" onClick={handleAddClick} >Finalizar compra</button></NavLink>)
+                            ? (<ItemCount stock={item.stock} initial={1} onAdd={onAdd} itemId={item.id} />)
+                            : (<NavLink to="/cart"><button id={item.id} className="button" onClick={handleAddClick} >Finalizar compra</button></NavLink>)
                         }
                     </div>
                 </div>
             </div>
-            <p className="detail-text">Descripción: {item[0].description}</p>
+            <p className="detail-text">Descripción: {item.description}</p>
         </div>
     )
 }

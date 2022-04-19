@@ -22,6 +22,10 @@
 p{
     color: var(--petroleo);
 }
+.detail-text{
+margin: 50px;
+text-align: justify;
+}
 
 @media only screen and (max-width:900px) {
     .detail-container{
