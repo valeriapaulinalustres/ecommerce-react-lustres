@@ -3,10 +3,16 @@ import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink, Link } from 'react-router-dom';
 import * as mdb from 'mdb-ui-kit';
+//para poder usar context trae estas dos importaciones:
+import { useContext } from 'react';
+import CartContext from '../../context/CartContext';
 
 
 
 function NavBar({ greetingName }) {
+
+   //trae cosas desde el context
+   const { usuario } = useContext(CartContext);
 
     const categories = [
         { categoryName: "Interior", route: "categories/interior", id: 1 },
@@ -25,8 +31,14 @@ function NavBar({ greetingName }) {
                         <h1 className='marca-nombre' >Los Lupinos</h1>
                     </NavLink>
                 </div>
-                <h2>Bienvenido {greetingName}</h2>
+            
+              {usuario.nombre
+              ? <h2>Bienvenido {usuario.nombre}</h2>
+            : (<NavLink to="/login"><button className='button'>Login</button></NavLink>)
+              }
 
+            
+                
                 <NavLink to="/cart" className="cartWidgetContainer"><CartWidget /></NavLink>
             </div>
             <nav>

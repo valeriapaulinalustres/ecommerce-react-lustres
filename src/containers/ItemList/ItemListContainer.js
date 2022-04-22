@@ -30,13 +30,70 @@ export function ItemListContainer({ greeting }) {
 
     //para atrapar el id de la categoría/link cliqueada
     const { linkName } = useParams()
-    //   console.log(linkName)
+  
+/*
+
+  //con Firestore filter
+  useEffect(() => {
+    const productsCollection = collection(db,"ItemCollection");
+  
+   
+    getDocs(productsCollection)
+    .then ((result)=> {
+        //console.log(result)
+        const docs = result.docs
+       
+        const lista = docs.map(producto => {
+    //para traer el id generado automáticamente:
+    const id = producto.id;
+    //se agrega ese id a las propiedades del objeto producto
+    const product = {
+        id,
+        ...producto.data()
+    }
+    
+            return product;
+        })
+        
+        //console.log(lista);
+    
+   
+    
+        if (linkName) {
+            const filteredProducts = lista.filter(product => product.category === linkName)
+            //console.log(filteredProducts);
+            setProducts(filteredProducts);
+          
+            //const q = query (productsCollection, where ("category", "==", linkName))
+    //getDocs(q)
+    //console.log(docs)
+        } else {
+            setProducts(lista);
+        }
+        
+    })
+    
+    .catch(() => {
+        console.log("error")
+    })
+    .finally(()=>{
+        setLoading(false)
+    })
+    }, [linkName]);
+    
+    
+    */
+    
 
 
-    //con Firestore
+
+    //con Firestore where
     useEffect(() => {
-const productsCollection = collection(db,"ItemCollection")
-getDocs(productsCollection)
+const productsCollection = collection(db,"ItemCollection");
+
+const q = linkName !== undefined ? query(productsCollection, where("category", "==", linkName)) : productsCollection;
+
+getDocs(q)
 .then ((result)=> {
     //console.log(result)
     const docs = result.docs
@@ -52,18 +109,8 @@ const product = {
 
         return product;
     })
-    //console.log(lista);
-    if (linkName) {
-        const filteredProducts = lista.filter(product => product.category === linkName)
-        //console.log(filteredProducts);
-        setProducts(filteredProducts);
-      
-        //const q = query (productsCollection, where ("category", "==", linkName))
-//getDocs(q)
-//console.log(docs)
-    } else {
-        setProducts(lista);
-    }
+    
+setProducts(lista)
 })
 .catch(() => {
     console.log("error")
@@ -72,6 +119,8 @@ const product = {
     setLoading(false)
 })
 }, [linkName]);
+
+
 
 
 /* hardcodeado:
