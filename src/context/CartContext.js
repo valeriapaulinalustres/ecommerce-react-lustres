@@ -5,7 +5,6 @@ import React, { createContext, useState } from 'react';
 
 //creo contexto 
 const CartContext = createContext();
-
 //creo el proveedor
 const CartProvider = ({ children }) => {
 
@@ -16,15 +15,15 @@ const CartProvider = ({ children }) => {
   //Estado del usuario
   const [usuario, setUsuario] = useState({});
 
-  const login = (valueNombre,valueEmail) => {
-    console.log(valueNombre,valueEmail);
+  const login = (valueNombre, valueEmail, valueTel) => {
+    console.log(valueNombre, valueEmail, valueTel);
     setUsuario({
       nombre: valueNombre,
+      tel: valueTel,
       email: valueEmail
     })
-   
   }
-  console.log(usuario)
+  // console.log(usuario)
 
   //fx para agregar items al carrito
   const addItem = (item, quantity) => {
@@ -37,17 +36,12 @@ const CartProvider = ({ children }) => {
       compras.forEach(element => {
         if (found.id === element.id) {
           //  console.log("repetido");
-
           return element.cantidad = quantity + element.cantidad;
-          
+
         }
       });
-     
     }
-
     if (found) { findDuplicated(found, compra) } else { setCompra([...compra, item]) };
-  
-    
   }
 
 
@@ -56,7 +50,6 @@ const CartProvider = ({ children }) => {
     const result = compra.filter(el => el.id !== id);
     setCompra(result)
   }
-
 
   //fx para vaciar el carrito
   const clear = () => {
@@ -71,23 +64,15 @@ const CartProvider = ({ children }) => {
     //console.log(found);
   }
 
-
-
-
   //para calcular el numerito del cartWidget
-
   let numberWidget = 0;
   const itemsQuantity = (array) => {
     array.forEach(element => {
       numberWidget = numberWidget + element.cantidad;
-
     });
   }
   itemsQuantity(compra);
-  console.log(numberWidget);
-
-
-
+  // console.log(numberWidget);
 
   //pongo en data todo lo que quiero compartir con los componentes
   const data = { compra, addItem, removeItem, clear, isInCart, numberWidget, usuario, login }
@@ -97,8 +82,6 @@ const CartProvider = ({ children }) => {
       {children}
     </CartContext.Provider>
   )
-
-
 }
 
 export { CartProvider };

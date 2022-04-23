@@ -5,9 +5,9 @@ import './loading.css';
 function Loading (){
     return (
         <div className='spinnerContainer' >
-            <span>cargando</span>
             <Spinner className= "spinner"  />
             <Spinner className= "spinnerDos"  />
+            <Spinner className= "spinnerTres"  />
         </div>
     );
 }

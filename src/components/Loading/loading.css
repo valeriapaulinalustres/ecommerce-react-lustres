@@ -1,18 +1,28 @@
 .spinner{
     position: absolute;
-    color: rgb(14, 114, 19);
+    color: var(--verdeClaro);
     width: 80px;
     height: 80px;
     margin-top: 10px;
     transform: rotate(90deg);
-    margin-left: 63px;
+    margin-right: 60px;
     
 }
 .spinnerDos{
     position: relative;
-    color: rgb(25, 226, 35);
+    color: var(--verdeOscuro);
     width: 100px;
     height: 100px;
+    z-index: -1;
+   
+}
+.spinnerTres{
+    position: relative;
+    color: var(--verdeAgua);
+    width: 60px;
+    height: 60px;
+    margin-right: 80px;
+    z-index: 4;
    
 }
 .spinnerContainer{

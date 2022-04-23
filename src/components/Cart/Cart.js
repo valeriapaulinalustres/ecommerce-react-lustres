@@ -7,24 +7,19 @@ import CartItems from '../CartItems/CartItems';
 import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 //firebase
-import { addDoc, collection, serverTimeStamp, updateDoc, doc, getDoc } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase.js";
 
 
 
 function Cart() {
-
-
   //trae cosas desde el context
   const { clear, compra, totalCompra, usuario } = useContext(CartContext);
-
+  //estado del código de la compra del usuario
   const [idventa, setIdventa] = useState(0);
 
 
-
-
   //useEffect(() => {
-
   const handleFinalizarCompra = () => {
     if (usuario.nombre) {
       const ventaCollection = collection(db, "ventas")
@@ -32,19 +27,17 @@ function Cart() {
       addDoc(ventaCollection, {
         comprador: usuario,
         items: compra,
-        //date: serverTimeStamp(),
+        date: serverTimestamp(),
         total: suma,
 
       }).then((result) => {
+        //lleva al estado el código de la compra
         setIdventa(result.id);
-
-        console.log(idventa);
-        console.log(result);
+        alert(`Su código de compra es ${result.id}`)
       });
 
       compra.forEach(element => {
         const idElementInCompra = element.id;
-
         //marca cuál es el producto de ItemCollection que tiene el id igual al elemento del cart
         const orderDoc = doc(db, "ItemCollection", idElementInCompra);
         //lo llama y lo trae
@@ -62,9 +55,7 @@ function Cart() {
             //actualizo el stock
             updateDoc(orderDoc, { stock: newStock });
           })
-
       });
-
       clear();
     }
     //finalizarCompra()
@@ -75,14 +66,11 @@ function Cart() {
     }
   }
 
-
-
   //evento que dispara la acción de vaciar el carrito
   const handleReset = () => {
     clear()
     //console.log("clear")
   }
-
 
 
   //calcula total de la compra
@@ -95,9 +83,7 @@ function Cart() {
       subtotal = element.cantidad * element.precio;
       // console.log(subtotal)
       suma = suma + subtotal;
-
     });
-
     return suma;
   }
   total1()
@@ -111,14 +97,12 @@ function Cart() {
           <NavLink to="/">
             <button className="button">Comenzar a comprar</button>
           </NavLink>
-
         </>)
         : (<>
           <ContainerTotalVaciar>
             <h3>Total: $ {suma}</h3>
             <button onClick={handleReset} className="button">Vaciar carrito</button>
           </ContainerTotalVaciar>
-
           <div className=' card-container'>
             {compra.map((item, index) => (
               <CartItems key={index} title={item.nombre} price={item.precio} quantity={item.cantidad} id={item.id} pictureUrl={item.imagen} />
@@ -126,12 +110,8 @@ function Cart() {
           </div>
           <button className='button' onClick={handleFinalizarCompra}>Finalizar compra</button>
         </>
-
         )
       }
-
-
-
     </Container>
   )
 }
@@ -157,3 +137,4 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 `
+
