@@ -8,6 +8,9 @@ import ErrorNotFound from './components/Loading/ErrorNotFound';
 //importar contexto
 import {CartProvider} from './context/CartContext';
 import Login from './components/Login/Login';
+//Toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -32,6 +35,7 @@ function App() {
           <Route path='/categories/:linkName/item/:id' element={<ItemDetailContainer />} />
         </Routes>
       </CartProvider>
+      <ToastContainer toastStyle={{ backgroundColor: "#A2D5AB", color: "white" }}/>
 
     </div>
   );

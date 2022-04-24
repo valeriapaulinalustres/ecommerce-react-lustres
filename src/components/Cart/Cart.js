@@ -9,7 +9,9 @@ import styled from 'styled-components';
 //firebase
 import { addDoc, collection, serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase.js";
-
+//toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Cart() {
@@ -62,7 +64,7 @@ function Cart() {
     //console.log("click");
     //}, [])
     else {
-      alert("para poder realizar la compra, debe registrase haciendo click en 'login'")
+      toastLogin()
     }
   }
 
@@ -71,7 +73,6 @@ function Cart() {
     clear()
     //console.log("clear")
   }
-
 
   //calcula total de la compra
   let suma = 0;
@@ -87,6 +88,20 @@ function Cart() {
     return suma;
   }
   total1()
+
+  //toastify
+  const toastLogin = () => {
+    toast('Para poder realizar la compra, debe registrase haciendo click en "Login"', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
+}
 
   return (
     <Container>

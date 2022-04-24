@@ -37,22 +37,48 @@ const ItemCount = ({ stock, initial, onAdd, itemId }) => {
     const increase = () => {
         counter < itemsInStock// debería ser counter < itemsInStock  (stock - compra.quantity)
             ? setCounter(counter + 1)
-            : alert("No hay suficiente stock. Usted ya tiene en el carrito: " + comprados + " unidades.");
-            
+            : toastMax();
+
     }
 
-
-
+    //alert("compra mínima permitida: " + initial);
     //evento del botón de resta
     const decrease = () => {
         counter > initial
             ? setCounter(counter - 1)
-            : alert("compra mínima permitida: " + initial);
+            : toastMin()
     }
 
     //evento del botón "agregar al carro" que ejecuta la acción onAdd enviada como prop por su padre
     const handleOnAdd = () => {
         onAdd(counter);
+    }
+
+    //toastify
+    const toastMin = () => {
+        toast('Compra mínima permitida: ' + initial + ' unidad', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+
+    }
+
+    const toastMax = () => {
+        toast('No hay suficiente stock. Usted ya tiene en el carrito: ' + comprados + ' unidades.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+
     }
 
     return (
