@@ -35,7 +35,7 @@ function App() {
           <Route path='/categories/:linkName/item/:id' element={<ItemDetailContainer />} />
         </Routes>
       </CartProvider>
-      <ToastContainer toastStyle={{ backgroundColor: "#A2D5AB", color: "white" }}/>
+      <ToastContainer toastStyle={{ backgroundColor: "#A2D5AB", color: "white", textAlign: "center" }}/>
 
     </div>
   );

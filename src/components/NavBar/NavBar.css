@@ -35,6 +35,12 @@ body{
     margin-left: 0;
     
 }
+.navbar-contenedor-login-cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 .navbar-li{
     list-style: none;
     margin: 10px;
@@ -51,6 +57,9 @@ body{
 h1{
     text-align: center;
     color: var(--petroleo);
+}
+h1:hover{
+    color: var(--verdeOscuro);
 }
 h2{
     text-align: center;
@@ -85,11 +94,17 @@ p{
     
             
 }
+.navbar-contenedor-nombre-salir{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .cartWidgetContainer{
     text-decoration: none;
     margin-right: 20px;
-
+    margin-left: 20px;
 }
 nav{
     display: flex;

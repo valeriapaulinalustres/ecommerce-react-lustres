@@ -11,8 +11,8 @@ import CartContext from '../../context/CartContext';
 
 function NavBar({ greetingName }) {
 
-   //trae cosas desde el context
-   const { usuario } = useContext(CartContext);
+    //trae cosas desde el context
+    const { usuario, logout } = useContext(CartContext);
 
     const categories = [
         { categoryName: "Interior", route: "categories/interior", id: 1 },
@@ -21,6 +21,9 @@ function NavBar({ greetingName }) {
         { categoryName: "Cactus", route: "categories/cactus", id: 4 }
     ]
 
+    const handleLogout = () => {
+        logout()
+    }
 
     return (
         <div className='container-navbar'>
@@ -31,15 +34,15 @@ function NavBar({ greetingName }) {
                         <h1 className='marca-nombre' >Los Lupinos</h1>
                     </NavLink>
                 </div>
-            
-              {usuario.nombre
-              ? <h2>Bienvenido {usuario.nombre}</h2>
-            : (<NavLink to="/login"><button className='button'>Login</button></NavLink>)
-              }
+<div className='navbar-contenedor-login-cart'>
+{usuario.nombre
+                    ? <div className='navbar-contenedor-nombre-salir'><h2>Bienvenido {usuario.nombre}</h2><button className='button' onClick={handleLogout}>Salir</button></div>
+                    : (<NavLink to="/login"><button className='button'>Login</button></NavLink>)
+                }
 
-            
-                
                 <NavLink to="/cart" className="cartWidgetContainer"><CartWidget /></NavLink>
+</div>
+               
             </div>
             <nav>
                 {categories.map((element, index) => {

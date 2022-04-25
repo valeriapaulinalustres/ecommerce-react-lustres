@@ -15,16 +15,22 @@ const CartProvider = ({ children }) => {
   //Estado del usuario
   const [usuario, setUsuario] = useState({});
 
-  const login = (valueNombre, valueEmail, valueTel) => {
-    console.log(valueNombre, valueEmail, valueTel);
+  const login = (valueNombre, valueTel, valueEmail) => {
+    console.log(valueNombre, valueTel, valueEmail);
     setUsuario({
       nombre: valueNombre,
       tel: valueTel,
       email: valueEmail
     })
   }
-  // console.log(usuario)
+   console.log(usuario)
 
+//para salir del usuario
+
+const logout = () => {
+  setUsuario({})
+}
+  
   //fx para agregar items al carrito
   const addItem = (item, quantity) => {
     //console.log("agregar");
@@ -75,7 +81,7 @@ const CartProvider = ({ children }) => {
   // console.log(numberWidget);
 
   //pongo en data todo lo que quiero compartir con los componentes
-  const data = { compra, addItem, removeItem, clear, isInCart, numberWidget, usuario, login }
+  const data = { compra, addItem, removeItem, clear, isInCart, numberWidget, usuario, login, logout }
 
   return (
     <CartContext.Provider value={data}>

@@ -1,31 +1,42 @@
-.spinner{
+.spinner {
     position: absolute;
     color: var(--verdeClaro);
     width: 80px;
     height: 80px;
     margin-top: 10px;
     transform: rotate(90deg);
-    margin-right: 60px;
-    
+    z-index: 2;
+
 }
-.spinnerDos{
-    position: relative;
+
+.spinnerDos {
+    position: absolute;
     color: var(--verdeOscuro);
     width: 100px;
     height: 100px;
     z-index: -1;
-   
+
 }
-.spinnerTres{
-    position: relative;
+
+.spinnerTres {
+    position: absolute;
     color: var(--verdeAgua);
     width: 60px;
     height: 60px;
-    margin-right: 80px;
+    margin-top: 20px;
     z-index: 4;
-   
+
 }
-.spinnerContainer{
+
+.spinnerContainer {
     display: flex;
     justify-content: center;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }

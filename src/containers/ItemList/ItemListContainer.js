@@ -10,7 +10,7 @@ import {db} from "../../firebase/firebase.js";
 import {getDocs, collection, query, where, getDoc} from "firebase/firestore";
 
 //console.log(db);
-
+/*
 //promesa para obtener el array, con setTimeout para simular delay 
 const promise = new Promise((res, rej) => {
     setTimeout(() => {
@@ -20,9 +20,9 @@ const promise = new Promise((res, rej) => {
             res(data)
             //    console.log(data);
         }
-    }, 2000);
+    }, 5000);
 });
-
+*/
 export function ItemListContainer({ greeting }) {
 
     const [products, setProducts] = useState([]);

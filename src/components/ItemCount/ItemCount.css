@@ -14,9 +14,13 @@
 
 .button {
     background-color: var(--verdeClaro);
+    border-radius: 8px;
+    border-color: var(--petroleo);
 }
 .button:hover{
-    background-color: var(--verdeAgua);
+    background-color: var(--verdeOscuro);
+    color: white;
+   
 
 }
 

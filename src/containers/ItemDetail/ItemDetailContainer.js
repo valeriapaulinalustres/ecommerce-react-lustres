@@ -10,7 +10,7 @@ import {db} from "../../firebase/firebase.js";
 import {collection, doc, getDoc} from "firebase/firestore"
 
 
-
+/*
 
 //promesa para obtener el array, con setTimeout para simular delay 
 const getItem = new Promise((res, rej) => {
@@ -22,7 +22,7 @@ const getItem = new Promise((res, rej) => {
         }
     }, 2000);
 });
-
+*/
 function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
     const { id } = useParams()

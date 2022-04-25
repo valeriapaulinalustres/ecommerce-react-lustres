@@ -1,8 +1,12 @@
 .cartIcon{
-    color: var(--petroleo
-);
-    
+    color: var(--petroleo)
 }
+
+.cartIcon:hover{
+color: var(--verdeOscuro);
+}
+    
+
 .cartCircle{
     color: white;
     background-color: var(--verdeClaro

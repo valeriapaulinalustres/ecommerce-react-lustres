@@ -41,8 +41,8 @@ function ItemDetail({ item }) {
                 <div className="detail-details">
                     <div className="j">
                         <h2 className="detail-title">{item.title}</h2>
-                        <p className="detail-text">Precio ${item.price}</p>
-                        <p className="detail-text">Stock disponible: {item.stock}</p>
+                        <p>Precio: ${item.price}</p>
+                        <p>Stock disponible: {item.stock}</p>
                     </div>
                     <div className='detail-buttons'>
                         {buy
