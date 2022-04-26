@@ -8,7 +8,9 @@ import {data} from '../../mocks/data.js';
 //firebase
 import {db} from "../../firebase/firebase.js";
 import {getDocs, collection, query, where, getDoc} from "firebase/firestore";
-
+//importar contexto
+import CartContext from '../../context/CartContext';
+import { useContext } from 'react';
 //console.log(db);
 /*
 //promesa para obtener el array, con setTimeout para simular delay 
@@ -24,6 +26,15 @@ const promise = new Promise((res, rej) => {
 });
 */
 export function ItemListContainer({ greeting }) {
+
+    //trae cosas desde el context
+const { cargarCarritoDeLocalStorage } = useContext(CartContext);
+
+document.addEventListener('DOMContentLoaded', () => {
+  //saca del storage, pasa de string a array y muestra por consola:
+
+  cargarCarritoDeLocalStorage()
+})
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);

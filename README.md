@@ -3,6 +3,9 @@
 
 - 📫 How to reach me **valeriapaulinalustres@yahoo.com.ar**
 
+Requisitos extra que contiene:
+-Cart persistente con localStorage.
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://linkedin.com/in/https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" height="30" width="40" /></a>

@@ -5,7 +5,6 @@ import ItemDetailContainer from './containers/ItemDetail/ItemDetailContainer';
 import { Routes, Route } from 'react-router-dom';
 import Cart from './components/Cart/Cart';
 import ErrorNotFound from './components/Loading/ErrorNotFound';
-//importar contexto
 import {CartProvider} from './context/CartContext';
 import Login from './components/Login/Login';
 //Toastify
@@ -13,9 +12,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
 function App() {
 
   let nombre = "Juan";
+
 
   return (
 

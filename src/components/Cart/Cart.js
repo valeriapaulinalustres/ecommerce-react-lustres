@@ -16,9 +16,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {
   //trae cosas desde el context
-  const { clear, compra, totalCompra, usuario } = useContext(CartContext);
+  const { clear, compra, totalCompra, usuario, cargarCarritoDeLocalStorage } = useContext(CartContext);
   //estado del código de la compra del usuario
   const [idventa, setIdventa] = useState(0);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    //saca del storage, pasa de string a array y muestra por consola:
+  
+    cargarCarritoDeLocalStorage()
+  })
 
 
   //useEffect(() => {
