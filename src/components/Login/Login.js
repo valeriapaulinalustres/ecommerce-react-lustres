@@ -17,6 +17,7 @@ function Login() {
   const valueName = useRef();
   const valueTel = useRef();
   const valueEmail = useRef();
+  const valueEmailConfirm = useRef();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -26,6 +27,8 @@ function Login() {
 
     const validEmail = validarMail(valueEmail.current.value);
     if (!validEmail) return invalidEmail();
+
+    if (valueEmail.current.value !== valueEmailConfirm.current.value) return invalidEmailConfirm();
 
     login(valueName.current.value, valueTel.current.value, valueEmail.current.value);
     thanksLogin();
@@ -84,11 +87,23 @@ function Login() {
     });
   }
 
+  const invalidEmailConfirm = () => {
+    toast('La confirmación de su email no coincide', {
+      position: "top-center",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
   return (
     <form className='form'>
       <input type="text" placeholder='Nombre y apellido' ref={valueName} className="form-input" />
       <input type="number" placeholder='Teléfono' ref={valueTel} className="form-input" />
       <input type="email" placeholder='email' ref={valueEmail} className="form-input" />
+      <input type="email" placeholder='confirmar email' ref={valueEmailConfirm} className="form-input" />
       <button type="submit" onClick={handleLogin} className="button form-button"><NavLink to='/' className="navbar-link">Login</NavLink></button>
 
 

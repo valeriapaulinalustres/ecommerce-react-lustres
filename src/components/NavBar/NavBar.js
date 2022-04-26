@@ -34,19 +34,38 @@ function NavBar({ greetingName }) {
                         <h1 className='marca-nombre' >Los Lupinos</h1>
                     </NavLink>
                 </div>
-<div className='navbar-contenedor-login-cart'>
-{usuario.nombre
-                    ? <div className='navbar-contenedor-nombre-salir'><h2>Bienvenido {usuario.nombre}</h2><button className='button' onClick={handleLogout}>Salir</button></div>
-                    : (<NavLink to="/login"><button className='button'>Login</button></NavLink>)
-                }
+                <div className='navbar-contenedor-login-cart'>
+                    {usuario.nombre
+                        ? <div className='navbar-contenedor-nombre-salir'><h2>Bienvenido {usuario.nombre}</h2><button className='button' onClick={handleLogout}>Salir</button></div>
+                        : (<NavLink to="/login"><button className='button'>Login</button></NavLink>)
+                    }
 
-                <NavLink to="/cart" className="cartWidgetContainer"><CartWidget /></NavLink>
-</div>
-               
+                    <NavLink to="/cart" className="cartWidget-container"><CartWidget /></NavLink>
+                </div>
+
             </div>
             <nav>
                 {categories.map((element, index) => {
-                    return (<NavLink to={element.route} className="navbar-link" key={index}>{element.categoryName}</NavLink>)
+                    return (
+                        <NavLink
+                            to={element.route}
+                            className="navbar-link"
+                            key={index}
+                            style={({ isActive }) =>
+                                isActive
+                                    ? {
+                                        color: '#fff',
+                                        background: '#A2D5AB',
+                                        borderRadius: 8,
+                                        paddingLeft: 6,
+                                        paddingRight: 6,
+                                    }
+                                    : {
+                                        color: '#39AEA9',
+                                        background: '#ffffff'
+                                    }
+                            }>{element.categoryName}
+                        </NavLink>)
                 })}
             </nav>
         </div>

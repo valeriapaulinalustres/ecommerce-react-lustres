@@ -29,7 +29,7 @@ export function ItemListContainer({ greeting }) {
     const [loading, setLoading] = useState(true);
 
     //para atrapar el id de la categoría/link cliqueada
-    const { linkName } = useParams()
+    const { categoryId } = useParams()
   
 /*
 
@@ -59,12 +59,12 @@ export function ItemListContainer({ greeting }) {
     
    
     
-        if (linkName) {
-            const filteredProducts = lista.filter(product => product.category === linkName)
+        if (categoryId) {
+            const filteredProducts = lista.filter(product => product.category === categoryId)
             //console.log(filteredProducts);
             setProducts(filteredProducts);
           
-            //const q = query (productsCollection, where ("category", "==", linkName))
+            //const q = query (productsCollection, where ("category", "==", categoryId))
     //getDocs(q)
     //console.log(docs)
         } else {
@@ -79,7 +79,7 @@ export function ItemListContainer({ greeting }) {
     .finally(()=>{
         setLoading(false)
     })
-    }, [linkName]);
+    }, [categoryId]);
     
     
     */
@@ -91,7 +91,7 @@ export function ItemListContainer({ greeting }) {
     useEffect(() => {
 const productsCollection = collection(db,"ItemCollection");
 
-const q = linkName !== undefined ? query(productsCollection, where("category", "==", linkName)) : productsCollection;
+const q = categoryId !== undefined ? query(productsCollection, where("category", "==", categoryId)) : productsCollection;
 
 getDocs(q)
 .then ((result)=> {
@@ -118,7 +118,7 @@ setProducts(lista)
 .finally(()=>{
     setLoading(false)
 })
-}, [linkName]);
+}, [categoryId]);
 
 
 
@@ -128,8 +128,8 @@ setProducts(lista)
  useEffect(() => {
         promise.then((products) => {
             // console.log (products[2].category)
-            if (linkName) {
-                const filteredProducts = products.filter(product => product.category === linkName)
+            if (categoryId) {
+                const filteredProducts = products.filter(product => product.category === categoryId)
                 //console.log(filteredProducts);
                 setProducts(filteredProducts);
                 setLoading(false)
@@ -142,7 +142,7 @@ setProducts(lista)
                 console.log("error")
             })
             
-    }, [linkName]);
+    }, [categoryId]);
 */
     
 
@@ -167,8 +167,8 @@ export function ItemListContainer({ greeting }) {
     const [notFiltered, setNotFiltered] = useState([])
     
     //para atrapar el id de la categoría/link cliqueada
-    const { linkName } = useParams()
-    //   console.log(linkName)
+    const { categoryId } = useParams()
+    //   console.log(categoryId)
 
     const url = "https://fakestoreapi.com/products"
 
@@ -201,8 +201,8 @@ export function ItemListContainer({ greeting }) {
 
     useEffect(() => {
        
-        if (linkName) {
-            const filteredProducts = products.filter(product => product.category === linkName)
+        if (categoryId) {
+            const filteredProducts = products.filter(product => product.category === categoryId)
             //console.log(filteredProducts);
             setFiltered(filteredProducts);
             console.log(filteredProducts);
@@ -214,7 +214,7 @@ export function ItemListContainer({ greeting }) {
             console.log("error hoy")
         }
  
-    }, [linkName])
+    }, [categoryId])
 
 
 
@@ -232,7 +232,7 @@ export function ItemListContainer({ greeting }) {
     return (
         <>
             <div>
-                <h2>{greeting}: {linkName}</h2>
+                <h2>{greeting}: {categoryId}</h2>
                 
                 {loading
                     ? (<Loading />)

@@ -35,7 +35,21 @@ function Cart() {
       }).then((result) => {
         //lleva al estado el código de la compra
         setIdventa(result.id);
-        alert(`Su código de compra es ${result.id}`)
+       
+        //toastify
+
+  toast(`Su código de compra es ${result.id}`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+  });
+
+
+
       });
 
       compra.forEach(element => {
@@ -102,6 +116,7 @@ function Cart() {
     });
 
 }
+
 
   return (
     <Container>

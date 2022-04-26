@@ -11,8 +11,8 @@ function CartWidget() {
 
     return (
         <div>           
-            <ShoppingCartIcon className='cartIcon'/>
-            {numberWidget >0 && <div className="cartCircle"><h4>{numberWidget}</h4></div>}
+            <ShoppingCartIcon className='cart-icon'/>
+            {numberWidget >0 && <div className="cart-circle"><h4>{numberWidget}</h4></div>}
             
         </div>
     )

@@ -25,14 +25,14 @@ function App() {
       <NavBar greetingName={nombre} />
         <Routes>
           <Route path='/' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
-          <Route path='/categories/:linkName' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
+          <Route path='/categories/:categoryId' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
           {/*El mismo element que home pero irá filtrado */}
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<Login />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           {/*se lo llama a este para que le pase la prop de la data a su hijo itemDetail */}
           <Route path='*' element={<ErrorNotFound />} />
-          <Route path='/categories/:linkName/item/:id' element={<ItemDetailContainer />} />
+          <Route path='/categories/:categoryId/item/:id' element={<ItemDetailContainer />} />
         </Routes>
       </CartProvider>
       <ToastContainer toastStyle={{ backgroundColor: "#A2D5AB", color: "white", textAlign: "center" }}/>

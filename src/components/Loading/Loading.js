@@ -4,10 +4,10 @@ import './loading.css';
 
 function Loading (){
     return (
-        <div className='spinnerContainer' >
-            <Spinner className= "spinner"  />
-            <Spinner className= "spinnerDos"  />
-            <Spinner className= "spinnerTres"  />
+        <div className='spinner-container' >
+            <Spinner className= "spinner-uno"  />
+            <Spinner className= "spinner-dos"  />
+            <Spinner className= "spinner-tres"  />
         </div>
     );
 }

@@ -1,4 +1,4 @@
-.spinner {
+.spinner-uno {
     position: absolute;
     color: var(--verdeClaro);
     width: 80px;
@@ -9,7 +9,7 @@
 
 }
 
-.spinnerDos {
+.spinner-dos {
     position: absolute;
     color: var(--verdeOscuro);
     width: 100px;
@@ -18,7 +18,7 @@
 
 }
 
-.spinnerTres {
+.spinner-tres {
     position: absolute;
     color: var(--verdeAgua);
     width: 60px;
@@ -28,7 +28,7 @@
 
 }
 
-.spinnerContainer {
+.spinner-container {
     display: flex;
     justify-content: center;
 }

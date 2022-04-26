@@ -1,4 +1,4 @@
-.cartIcon{
+.cart-icon{
     color: var(--petroleo)
 }
 
@@ -7,7 +7,7 @@ color: var(--verdeOscuro);
 }
     
 
-.cartCircle{
+.cart-circle{
     color: white;
     background-color: var(--verdeClaro
     );

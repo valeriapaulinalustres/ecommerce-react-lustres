@@ -1,11 +1,11 @@
-.countContainer {
+.count-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: var(--verdeAgua);
 }
 
-.countButtons {
+.count-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
