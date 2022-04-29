@@ -1,12 +1,9 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Item.css';
 
 
 export default function Item({ id, title, price, pictureUrl}) {
 
-
-
-    // console.log(id)
     return (
         <NavLink to={`item/${id}`} className="a-card" >
             <div className="card text-center">

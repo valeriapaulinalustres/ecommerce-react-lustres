@@ -2,45 +2,49 @@ import '../../containers/ItemDetail/itemDetailContainer.css';
 import ItemCount from '../ItemCount/ItemCount.js';
 import { useState } from 'react';
 import './itemDetail.css';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
+import WishContext from '../../context/WishContext';
 
 function ItemDetail({ item }) {
 
     const [added, setAdded] = useState(0)
     const [buy, setBuy] = useState(true)
+    const [color, setColor] = useState(item.wishItem);
+
     //función que pasa a su hijo ItemCount para el evento del botón "agregar al carrito"
     const onAdd = (counter) => {
-        //     console.log(counter);
         setAdded(counter);
         setBuy(false)
-
     }
-    //trae cosas desde el context
-    const { compra, addItem, isInCart } = useContext(CartContext);
-    //  console.log(compra)
 
+    //trae cosas desde el context
+    const { addItem, isInCart } = useContext(CartContext);
+    const { wishItems, addWish } = useContext(WishContext);
 
     const handleAddClick = (event) => {
-
         //describe las propiedades de cada objeto del array del carrito ("compra")
         let newProduct = { nombre: item.title, precio: item.price, id: item.id, imagen: item.pictureUrl, cantidad: added }
-//console.log(item.id);
-        //console.log(newProduct);
         isInCart(newProduct)
         addItem(newProduct, added);
     }
 
-     //console.log(item.title);
+    const handleOnOff = () => {
+        //describe las propiedades de cada objeto del array del carrito ("compra")
+        let newProduct = { nombre: item.title, precio: item.price, id: item.id, imagen: item.pictureUrl }
+        addWish(newProduct);
+    }
+
     return (
         <div className="detail-container">
             <div className="detail-container-son">
                 <img src={item.pictureUrl} className="detail-image" width="100%" />
                 <div className="detail-details">
-                    <div className="j">
+                    <div className="detail-main">
                         <h2 className="detail-title">{item.title}</h2>
+                        <button className={wishItems.find(el => el.id == item.id) ? 'button-true' : 'button-false'} onClick={handleOnOff}>❤️</button>
                         <p>Precio: ${item.price}</p>
                         <p>Stock disponible: {item.stock}</p>
                     </div>

@@ -10,10 +10,9 @@ function CartWidget() {
     const { numberWidget } = useContext(CartContext);
 
     return (
-        <div>           
-            <ShoppingCartIcon className='cart-icon'/>
-            {numberWidget >0 && <div className="cart-circle"><h4>{numberWidget}</h4></div>}
-            
+        <div>
+            <ShoppingCartIcon className='cart-icon' />
+            {numberWidget > 0 && <div className="cart-circle"><h4>{numberWidget}</h4></div>}
         </div>
     )
 }

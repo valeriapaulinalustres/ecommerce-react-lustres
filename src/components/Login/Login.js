@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import CartContext from '../../context/CartContext';
 import './login.css';
 //toastify
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -32,8 +32,6 @@ function Login() {
 
     login(valueName.current.value, valueTel.current.value, valueEmail.current.value);
     thanksLogin();
-    console.log(valueTel.current.value)
-
   };
 
   const validarName = (nombre) => {
@@ -112,37 +110,3 @@ function Login() {
 }
 
 export default Login
-
-/*
-
-const validarNombre = (nombre="") => {
-    if (!nombre) {console.error("no ingresaste un nombre")};
-    if (typeof nombre !== "string") {console.error("no ingresaste cadena de texto")}
-
-
-    let expReg = /^[A-Za-zÁáÉéÍíÓóÚúÑñÜú\s]+$/g.test(nombre);
-    return (expReg)
-    ? console.info(`el nombre ${nombre} es válido`)
-    : console.warn(`${nombre} es inválido`);
-}
-validarNombre("Valeria")
-validarNombre(87)
-validarNombre()
-validarNombre(89)
-    
-    //////////////////////20
-    
-    const validarMail = (email="") => {
-        if (!email) {console.error("no ingresaste un mail")};
-        if (typeof email !== "string") {console.error("no ingresaste mail válido")}
-    
-    
-        let expReg =  /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email);
-        return (expReg)
-        ? console.info(`el email ${email} es válido`)
-        : console.warn(`${email} es inválido`);
-    }
-    validarMail("Valeria")
-    validarMail(87)
-    validarMail("valeriapaulina@yahoo.com.ar")
-*/

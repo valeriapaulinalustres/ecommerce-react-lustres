@@ -4,44 +4,36 @@ import './ItemCount.css';
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 //toastify
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount = ({ stock, initial, onAdd, itemId }) => {
 
     //trae cosas desde el context
     const { compra } = useContext(CartContext);
-    //console.log(compra)
 
     //obtengo el índice del objeto del carrito al cual voy a volver a comprar
     let itemIndex = compra.findIndex(el => el.id == itemId);
-
     // condicional para que "comprados" sea la cantidad de items que ya tiene el carrito
     let comprados = 0
-
     if (compra.length == 0) {
         comprados = 0
     } else {
         if (itemIndex !== -1) { comprados = compra[itemIndex].cantidad }
     }
 
-    //        console.log(comprados)
     //stock viene de data.js 
     const itemsInStock = stock - comprados
-    console.log(itemsInStock)
-
+ 
     //destructuración 
     const [counter, setCounter] = useState(initial);
-    //console.log(counter)
     //evento del botón de suma
     const increase = () => {
-        counter < itemsInStock// debería ser counter < itemsInStock  (stock - compra.quantity)
+        counter < itemsInStock
             ? setCounter(counter + 1)
             : toastMax();
-
     }
 
-    //alert("compra mínima permitida: " + initial);
     //evento del botón de resta
     const decrease = () => {
         counter > initial
@@ -65,7 +57,6 @@ const ItemCount = ({ stock, initial, onAdd, itemId }) => {
             draggable: true,
             progress: undefined,
         });
-
     }
 
     const toastMax = () => {
@@ -78,7 +69,6 @@ const ItemCount = ({ stock, initial, onAdd, itemId }) => {
             draggable: true,
             progress: undefined,
         });
-
     }
 
     return (
@@ -88,7 +78,7 @@ const ItemCount = ({ stock, initial, onAdd, itemId }) => {
                 <span className="value">{counter}</span>
                 <button className="button" onClick={increase}>➕</button>
             </div>
-            <button onClick={handleOnAdd} className="countAdd button" >agregar al carrito 🛒</button>
+            <button onClick={handleOnAdd} className="countAdd button" >Agregar al carrito</button>
         </div>
     )
 }

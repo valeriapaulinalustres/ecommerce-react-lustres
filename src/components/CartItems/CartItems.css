@@ -1,7 +1,20 @@
-.img-carritos{
+.img-carritos {
     width: 5%;
 }
-.card-carrito-size{
+
+.card-carrito-size {
     width: 250px;
     height: 500px;
+    margin: 5px;
+}
+
+.x {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.card-deseos-size {
+    width: 250px;
+    height: 340px;
+    margin: 5px;
 }

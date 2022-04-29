@@ -1,16 +1,12 @@
 import marca from '../../img/lupinos.jpg';
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
-import { NavLink, Link } from 'react-router-dom';
-import * as mdb from 'mdb-ui-kit';
+import { NavLink } from 'react-router-dom';
 //para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 
-
-
 function NavBar({ greetingName }) {
-
     //trae cosas desde el context
     const { usuario, logout } = useContext(CartContext);
 
@@ -39,10 +35,9 @@ function NavBar({ greetingName }) {
                         ? <div className='navbar-contenedor-nombre-salir'><h2>Bienvenido {usuario.nombre}</h2><button className='button' onClick={handleLogout}>Salir</button></div>
                         : (<NavLink to="/login"><button className='button'>Login</button></NavLink>)
                     }
-
+                    <NavLink to="/wishList" className="cartWidget-container heart">❤️</NavLink>
                     <NavLink to="/cart" className="cartWidget-container"><CartWidget /></NavLink>
                 </div>
-
             </div>
             <nav>
                 {categories.map((element, index) => {

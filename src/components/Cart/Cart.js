@@ -4,28 +4,29 @@ import React from 'react';
 import { useContext, useEffect, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import CartItems from '../CartItems/CartItems';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 //firebase
 import { addDoc, collection, serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase.js";
 //toastify
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import WishContext from '../../context/WishContext';
 
 function Cart() {
   //trae cosas desde el context
-  const { clear, compra, totalCompra, usuario, cargarCarritoDeLocalStorage } = useContext(CartContext);
+  const { clear, compra, usuario, cargarCarritoDeLocalStorage } = useContext(CartContext);
+  const { cargarDeseosDeLocalStorage } = useContext(WishContext)
   //estado del código de la compra del usuario
   const [idventa, setIdventa] = useState(0);
 
+  //traer del local storage al recargar la página
   document.addEventListener('DOMContentLoaded', () => {
     //saca del storage, pasa de string a array y muestra por consola:
-  
-    cargarCarritoDeLocalStorage()
+    cargarCarritoDeLocalStorage();
+    cargarDeseosDeLocalStorage()
   })
-
 
   //useEffect(() => {
   const handleFinalizarCompra = () => {
@@ -41,21 +42,16 @@ function Cart() {
       }).then((result) => {
         //lleva al estado el código de la compra
         setIdventa(result.id);
-       
         //toastify
-
-  toast(`Su código de compra es ${result.id}`, {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-  });
-
-
-
+        toast(`Su código de compra es ${result.id}`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
 
       compra.forEach(element => {
@@ -91,7 +87,6 @@ function Cart() {
   //evento que dispara la acción de vaciar el carrito
   const handleReset = () => {
     clear()
-    //console.log("clear")
   }
 
   //calcula total de la compra
@@ -99,10 +94,8 @@ function Cart() {
   const total1 = () => {
     suma = 0;
     let subtotal = 0;
-
     compra.forEach(element => {
       subtotal = element.cantidad * element.precio;
-      // console.log(subtotal)
       suma = suma + subtotal;
     });
     return suma;
@@ -112,17 +105,15 @@ function Cart() {
   //toastify
   const toastLogin = () => {
     toast('Para poder realizar la compra, debe registrase haciendo click en "Login"', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
     });
-
-}
-
+  }
 
   return (
     <Container>
@@ -153,6 +144,8 @@ function Cart() {
 }
 
 export default Cart
+
+//para practicar styled components
 
 const Container = styled.div`
 display:flex;
