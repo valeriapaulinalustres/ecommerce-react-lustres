@@ -1,12 +1,24 @@
 <h1 align="center">I'm Valeria Paulina Lustres</h1>
-<h3 align="center">Gardening ecommerce in React Js and database from Firebase. CSS, Bootstrap, Toastify. </h3>
+<h3 align="center">It´s a gardening site that simulates an ecommerce and consumes information from Firebase. You can filter the products by category, see the details and add to the shopping cart, or if you prefer, it can be saved to the wish list for later. </h3>
 
-- 📫 How to reach me **valeriapaulinalustres@yahoo.com.ar**
 
-Requisitos extra que contiene:
--Cart persistente con localStorage.
+Developed with React Js and CSS.
+
+
+Extra Features:
+
+-Wish List
+
+-Use of Local Storage
+
+
+Here you can visit de app:
+
+*****
+
 
 <h3 align="left">Connect with me:</h3>
+<p>valeriapaulinalustres@yahoo.com.ar</p>
 <p align="left">
 <a href="https://linkedin.com/in/https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" height="30" width="40" /></a>
 </p>

@@ -7,10 +7,9 @@ import CartContext from '../../context/CartContext';
 import WishItems from '../wishItems/WishItems';
 import './wishList.css';
 
-
 function WishList() {
 
-  const { wishItems, cargarDeseosDeLocalStorage } = useContext(WishContext);
+  const { wishItems, cargarDeseosDeLocalStorage, clearWishes } = useContext(WishContext);
   const { cargarCarritoDeLocalStorage } = useContext(CartContext);
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -18,6 +17,10 @@ function WishList() {
     cargarCarritoDeLocalStorage();
     cargarDeseosDeLocalStorage()
   })
+
+  const handleVaciar = () => {
+    clearWishes()
+  }
 
   return (
     <div className='wish-container'>
@@ -31,11 +34,15 @@ function WishList() {
             </NavLink>
           </div>
         ) : (
-          <div className=' card-container'>
-            {wishItems.map((item, index) => (
-              <WishItems key={index} title={item.nombre} price={item.precio} id={item.id} pictureUrl={item.imagen} />
-            ))}
-          </div>)}
+          <div className='wish-container'>
+            <button className='button' onClick={handleVaciar}>Vaciar</button>
+            <div className=' card-container'>
+              {wishItems.map((item, index) => (
+                <WishItems key={index} title={item.nombre} price={item.precio} id={item.id} pictureUrl={item.imagen} />
+              ))}
+            </div>
+          </div>
+        )}
     </div>
   )
 }
