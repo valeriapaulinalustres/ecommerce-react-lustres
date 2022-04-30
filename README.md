@@ -1,18 +1,31 @@
 <h1 align="center">I'm Valeria Paulina Lustres</h1>
 <h3 align="center">It´s a gardening site that simulates an ecommerce and consumes information from Firebase. You can filter the products by category, see the details and add to the shopping cart, or if you prefer, it can be saved to the wish list for later. </h3>
 
+<h3 align="left">Developed with:</h3>
 
-**Developed with React Js and CSS, Firebase, Bootstrap, Toastify. Responsive Design.**
+-React Js
+
+-CSS
+
+-Firebase
+
+-Bootstrap
+
+-Toastify
 
 
-Extra Features:
+
+<h3 align="left">Extra features:</h3>
 
 -Wish List
 
 -Use of Local Storage
 
+-Responsive Design
 
-Here you can visit de app:
+
+<h3 align="left">Here you can visit my app:</h3>
+
 
 https://valeriapaulinalustres.github.io/ecommerce-react-lustres/
 
