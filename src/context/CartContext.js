@@ -8,11 +8,17 @@ const CartProvider = ({ children }) => {
 
   const [usuario, setUsuario] = useState({});
 
-  const updateCache = () => {
-    const compraJSON = JSON.stringify(compra)
-    if (compra.length !== 0) { localStorage.setItem("Compra", compraJSON) } else {localStorage.removeItem("Compra") }
+  const updateCache = (array) => {
+    const compraJSON = JSON.stringify(array)
+    if (array.length !== 0) { localStorage.setItem("Compra", compraJSON) } 
   }
-  updateCache();
+  
+  const updateCacheRemove = (array) => {
+    const compraJSON = JSON.stringify(array)
+    localStorage.setItem("Deseos", compraJSON)
+  }
+  updateCache(compra);
+
 
   const login = (valueNombre, valueTel, valueEmail) => {
     console.log(valueNombre, valueTel, valueEmail);
@@ -37,13 +43,13 @@ const CartProvider = ({ children }) => {
       });
     }
     if (found) { findDuplicated(found, compra); } else { setCompra([...compra, item]); };
-    updateCache()
+    updateCache(compra)
   }
 
   const removeItem = (id) => {
     const result = compra.filter(el => el.id !== id);
     setCompra(result);
-    updateCache()
+    updateCacheRemove(result)
   }
 
   const clear = () => {
@@ -79,7 +85,7 @@ const CartProvider = ({ children }) => {
 }
 
 export { CartProvider };
-
+//exporto contexto
 export default CartContext;
 
 

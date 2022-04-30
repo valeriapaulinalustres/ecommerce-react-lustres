@@ -31,7 +31,6 @@ const WishProvider = ({ children }) => {
   const removeItem = (id) => {
     const result = wishItems.filter(el => el.id !== id);
     setWishItems(result);
-
     updateCacheRemove(result);
     setWished(false);
   }
