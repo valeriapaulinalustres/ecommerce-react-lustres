@@ -14,7 +14,7 @@ Extra Features:
 
 Here you can visit de app:
 
-*****
+https://valeriapaulinalustres.github.io/ecommerce-react-lustres/
 
 
 <h3 align="left">Connect with me:</h3>
