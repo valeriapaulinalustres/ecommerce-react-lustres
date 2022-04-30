@@ -2,7 +2,7 @@
 <h3 align="center">It´s a gardening site that simulates an ecommerce and consumes information from Firebase. You can filter the products by category, see the details and add to the shopping cart, or if you prefer, it can be saved to the wish list for later. </h3>
 
 
-Developed with React Js and CSS.
+**Developed with React Js and CSS, Firebase, Bootstrap, Toastify. Responsive Design.**
 
 
 Extra Features:

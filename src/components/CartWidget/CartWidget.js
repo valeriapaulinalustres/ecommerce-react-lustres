@@ -17,5 +17,3 @@ function CartWidget() {
     )
 }
 export default CartWidget;
-
-/* && sirvió para if sin necesidad de else*/

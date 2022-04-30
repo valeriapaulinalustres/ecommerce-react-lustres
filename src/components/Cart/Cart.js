@@ -1,34 +1,26 @@
 
 import React from 'react';
-//para poder usar context trae estas dos importaciones:
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import CartItems from '../CartItems/CartItems';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-//firebase
 import { addDoc, collection, serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase.js";
-//toastify
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WishContext from '../../context/WishContext';
 
 function Cart() {
-  //trae cosas desde el context
   const { clear, compra, usuario, cargarCarritoDeLocalStorage } = useContext(CartContext);
   const { cargarDeseosDeLocalStorage } = useContext(WishContext)
-  //estado del código de la compra del usuario
   const [idventa, setIdventa] = useState(0);
 
-  //traer del local storage al recargar la página
   document.addEventListener('DOMContentLoaded', () => {
-    //saca del storage, pasa de string a array y muestra por consola:
     cargarCarritoDeLocalStorage();
     cargarDeseosDeLocalStorage()
   })
 
-  //useEffect(() => {
   const handleFinalizarCompra = () => {
     if (usuario.nombre) {
       const ventaCollection = collection(db, "ventas")
@@ -40,9 +32,7 @@ function Cart() {
         total: suma,
 
       }).then((result) => {
-        //lleva al estado el código de la compra
         setIdventa(result.id);
-        //toastify
         toast(`Su código de compra es ${result.id}`, {
           position: "top-center",
           autoClose: 5000,
@@ -56,40 +46,28 @@ function Cart() {
 
       compra.forEach(element => {
         const idElementInCompra = element.id;
-        //marca cuál es el producto de ItemCollection que tiene el id igual al elemento del cart
         const orderDoc = doc(db, "ItemCollection", idElementInCompra);
-        //lo llama y lo trae
         getDoc(orderDoc)
-          //devuelve una promesa
           .then((result) => {
-            //trae esa data
             const product = result.data();
-            //da la data selecciono sólo el stock
             const stockItem = product.stock;
             console.log(stockItem)
-            //resto el stock de la cantidad comprada
             const newStock = stockItem - element.cantidad;
             console.log(newStock);
-            //actualizo el stock
             updateDoc(orderDoc, { stock: newStock });
           })
       });
       clear();
     }
-    //finalizarCompra()
-    //console.log("click");
-    //}, [])
     else {
       toastLogin()
     }
   }
 
-  //evento que dispara la acción de vaciar el carrito
   const handleReset = () => {
     clear()
   }
 
-  //calcula total de la compra
   let suma = 0;
   const total1 = () => {
     suma = 0;
@@ -102,7 +80,6 @@ function Cart() {
   }
   total1()
 
-  //toastify
   const toastLogin = () => {
     toast('Para poder realizar la compra, debe registrase haciendo click en "Login"', {
       position: "top-center",
@@ -145,7 +122,6 @@ function Cart() {
 
 export default Cart
 
-//para practicar styled components
 
 const Container = styled.div`
 display:flex;

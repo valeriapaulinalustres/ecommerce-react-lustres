@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//para englobar las rutas
 import { BrowserRouter } from "react-router-dom";
-
- {/*englobo todo lo que quiero que entre en las rutas, con BrowserRouter*/}
 
 ReactDOM.render(
   <React.StrictMode>

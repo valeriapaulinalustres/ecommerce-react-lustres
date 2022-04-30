@@ -134,8 +134,25 @@ nav{
         font-size: smaller;
     }
     h2{
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width:300px) {
+    h1{
+        font-size: smaller;
+    }
+    h2{
         font-size: 300px;
         display: none;
+    }
+    .marca{
+        display: none;
+    }
+    .navbar-link{
+        font-size: 15px;
+        
     }
     
 }

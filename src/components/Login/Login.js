@@ -1,19 +1,15 @@
 import React, { useRef } from 'react';
-//para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import CartContext from '../../context/CartContext';
 import './login.css';
-//toastify
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
 
-  //trae cosas desde el context
   const { login } = useContext(CartContext);
-  //referencias de los inputs
   const valueName = useRef();
   const valueTel = useRef();
   const valueEmail = useRef();
@@ -48,7 +44,6 @@ function Login() {
     return expReg
   }
 
-  //toastify
   const thanksLogin = () => {
     toast('Gracias por registrarse', {
       position: "top-center",

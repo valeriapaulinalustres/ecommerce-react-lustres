@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-//para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import WishContext from '../../context/WishContext';
 import CartContext from '../../context/CartContext';
@@ -13,7 +12,6 @@ function WishList() {
   const { cargarCarritoDeLocalStorage } = useContext(CartContext);
 
   document.addEventListener('DOMContentLoaded', () => {
-    //saca del storage, pasa de string a array y muestra por consola:
     cargarCarritoDeLocalStorage();
     cargarDeseosDeLocalStorage()
   })

@@ -2,12 +2,10 @@ import marca from '../../img/lupinos.jpg';
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
-//para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 
 function NavBar({ greetingName }) {
-    //trae cosas desde el context
     const { usuario, logout } = useContext(CartContext);
 
     const categories = [

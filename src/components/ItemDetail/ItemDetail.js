@@ -3,7 +3,6 @@ import ItemCount from '../ItemCount/ItemCount.js';
 import { useState } from 'react';
 import './itemDetail.css';
 import { NavLink } from 'react-router-dom';
-//para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import WishContext from '../../context/WishContext';
@@ -12,27 +11,22 @@ function ItemDetail({ item }) {
 
     const [added, setAdded] = useState(0)
     const [buy, setBuy] = useState(true)
-    const [color, setColor] = useState(item.wishItem);
 
-    //función que pasa a su hijo ItemCount para el evento del botón "agregar al carrito"
     const onAdd = (counter) => {
         setAdded(counter);
         setBuy(false)
     }
 
-    //trae cosas desde el context
     const { addItem, isInCart } = useContext(CartContext);
     const { wishItems, addWish } = useContext(WishContext);
 
     const handleAddClick = (event) => {
-        //describe las propiedades de cada objeto del array del carrito ("compra")
         let newProduct = { nombre: item.title, precio: item.price, id: item.id, imagen: item.pictureUrl, cantidad: added }
         isInCart(newProduct)
         addItem(newProduct, added);
     }
 
     const handleOnOff = () => {
-        //describe las propiedades de cada objeto del array del carrito ("compra")
         let newProduct = { nombre: item.title, precio: item.price, id: item.id, imagen: item.pictureUrl }
         addWish(newProduct);
     }

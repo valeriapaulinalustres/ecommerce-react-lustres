@@ -33,9 +33,11 @@ text-align: justify;
 }
 .button-true{
     background-color: var(--petroleo);
+    margin-bottom: 5px;
 }
 .button-false{
     background-color: var(--verdeAgua);
+    margin-bottom: 5px;
 }
 
 
@@ -64,5 +66,8 @@ text-align: justify;
     padding: 10px;
     width: 200px;
     margin: 10px;
+}
+.detail-image{
+    width: 80%;
 }
 }

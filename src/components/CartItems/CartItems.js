@@ -1,5 +1,4 @@
 import React from 'react';
-//para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import './CartItems.css';
@@ -7,14 +6,10 @@ import './CartItems.css';
 
 function CartItems({ title, price, pictureUrl, quantity, id }) {
 
-  //trae cosas desde el context
   const { removeItem } = useContext(CartContext);
 
-  //evento que dispara la acción de borrar un item
   const handleDeleteItem = (e) => {
-    //console.log("remove");
-    let id = e.target.id
-    //console.log(id)
+    let id = e.target.id;
     removeItem(id)
   }
 
