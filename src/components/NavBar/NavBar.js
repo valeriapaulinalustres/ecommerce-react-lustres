@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 
-function NavBar({ greetingName }) {
+function NavBar() {
     const { usuario, logout } = useContext(CartContext);
 
     const categories = [
@@ -23,7 +23,7 @@ function NavBar({ greetingName }) {
         <div className='container-navbar'>
             <div className="navbar-contenedor">
                 <div>
-                    <NavLink to="/ecommerce-react-lustres" className="navbar-contenedor-marca">
+                    <NavLink to="/" className="navbar-contenedor-marca">
                         <img className="marca" src={marca} alt="marca del vivero 'Los Lupinos'" />
                         <h1 className='marca-nombre' >Los Lupinos</h1>
                     </NavLink>
