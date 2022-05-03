@@ -23,14 +23,14 @@ function App() {
         <WishProvider>
           <NavBar greetingName={nombre} />
           <Routes>
-            <Route path='/' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
-            <Route path='/categories/:categoryId' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/wishList' element={<WishList />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/item/:id' element={<ItemDetailContainer />} />
+            <Route path='ecommerce-react-lustres/' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
+            <Route path='ecommerce-react-lustres/categories/:categoryId' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
+            <Route path='ecommerce-react-lustres/cart' element={<Cart />} />
+            <Route path='ecommerce-react-lustres/wishList' element={<WishList />} />
+            <Route path='ecommerce-react-lustres/login' element={<Login />} />
+            <Route path='ecommerce-react-lustres/item/:id' element={<ItemDetailContainer />} />
             <Route path='*' element={<ErrorNotFound />} />
-            <Route path='/categories/:categoryId/item/:id' element={<ItemDetailContainer />} />
+            <Route path='ecommerce-react-lustres/categories/:categoryId/item/:id' element={<ItemDetailContainer />} />
           </Routes>
         </WishProvider>
       </CartProvider>
