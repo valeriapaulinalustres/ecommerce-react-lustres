@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ecommerce-react-lustres/static/css/main.dbebaa00.css",
+    "main.js": "/ecommerce-react-lustres/static/js/main.1aaba20b.js",
+    "static/js/787.1825c352.chunk.js": "/ecommerce-react-lustres/static/js/787.1825c352.chunk.js",
+    "static/media/lupinos.jpg": "/ecommerce-react-lustres/static/media/lupinos.2a265519b8eb0578debd.jpg",
+    "index.html": "/ecommerce-react-lustres/index.html",
+    "main.dbebaa00.css.map": "/ecommerce-react-lustres/static/css/main.dbebaa00.css.map",
+    "main.1aaba20b.js.map": "/ecommerce-react-lustres/static/js/main.1aaba20b.js.map",
+    "787.1825c352.chunk.js.map": "/ecommerce-react-lustres/static/js/787.1825c352.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbebaa00.css",
+    "static/js/main.1aaba20b.js"
+  ]
+}
