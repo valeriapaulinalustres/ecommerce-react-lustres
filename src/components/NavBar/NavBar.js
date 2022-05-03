@@ -23,7 +23,7 @@ function NavBar({ greetingName }) {
         <div className='container-navbar'>
             <div className="navbar-contenedor">
                 <div>
-                    <NavLink to="/" className="navbar-contenedor-marca">
+                    <NavLink to="/ecommerce-react-lustres" className="navbar-contenedor-marca">
                         <img className="marca" src={marca} alt="marca del vivero 'Los Lupinos'" />
                         <h1 className='marca-nombre' >Los Lupinos</h1>
                     </NavLink>
