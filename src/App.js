@@ -22,7 +22,7 @@ function App() {
       <CartProvider>
         <WishProvider>
           <NavBar greetingName={nombre} />
-          <Routes basename={"https://valeriapaulinalustres.github.io/ecommerce-react-lustres"}>
+          <Routes>
             <Route path='/ecommerce-react-lustres' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
             <Route path='/ecommerce-react-lustres/categories/:categoryId' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
             <Route path='/ecommerce-react-lustres/cart' element={<Cart />} />
