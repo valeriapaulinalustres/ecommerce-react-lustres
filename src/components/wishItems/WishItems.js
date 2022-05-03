@@ -1,5 +1,4 @@
 import React from 'react';
-//para poder usar context trae estas dos importaciones:
 import { useContext } from 'react';
 import WishContext from '../../context/WishContext'
 import { NavLink } from 'react-router-dom';
