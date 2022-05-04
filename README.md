@@ -26,14 +26,17 @@
 
 <h3 align="left">Here you can visit my app:</h3>
 
+Profe Alejandro: Al hacer clic en el siguiente link lo dirigirá a la página de error. Encontrará allí un botón, el cual lo llevará al home y podrá recorrer la app. No he podido lograr mediante los tutoriales, que GitHub Pages funcione sin este primer error, a pesar de haber modificado las rutas. Sin embargo prefiero enviárselo así y no mediante un gif para que pueda navegar mi app.  
 
 https://valeriapaulinalustres.github.io/ecommerce-react-lustres/
+
+
 
 
 <h3 align="left">Connect with me:</h3>
 <p>valeriapaulinalustres@yahoo.com.ar</p>
 <p align="left">
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/valeria-paulina-lustres/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">My skills:</h3>
