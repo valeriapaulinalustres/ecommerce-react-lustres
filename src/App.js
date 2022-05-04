@@ -22,7 +22,7 @@ function App() {
         <WishProvider>
           <NavBar/>
           <Routes>
-            <Route path='/' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
+            <Route path='' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
             <Route path='/categories/:categoryId' element={<ItemListContainer greeting={"Catálogo de productos"} />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/wishList' element={<WishList />} />
