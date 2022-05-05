@@ -38,11 +38,12 @@ const CartProvider = ({ children }) => {
     const findDuplicated = (found, compras) => {
       compras.forEach(element => {
         if (found.id === element.id) {
-          return element.cantidad = quantity + element.cantidad;
+          element.cantidad = quantity + element.cantidad;
         }
-      });
+      })
+      setCompra(compras)
     }
-    if (found) { findDuplicated(found, compra); } else { setCompra([...compra, item]); };
+    if (found) { findDuplicated(found, [...compra]) } else { setCompra([...compra, item]); };
     updateCache(compra)
   }
 
