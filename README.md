@@ -24,15 +24,6 @@
 -Responsive Design
 
 
-<h3 align="left">Here you can visit my app:</h3>
-
-Profe Alejandro: Al hacer clic en el siguiente link lo dirigirá a la página de error. Encontrará allí un botón, el cual lo llevará al home y podrá recorrer la app. No he podido lograr mediante los tutoriales, que GitHub Pages funcione sin este primer error, a pesar de haber modificado las rutas. Sin embargo prefiero enviárselo así (y no con un gif) y no demorar más días en entregarle. 
-
-https://valeriapaulinalustres.github.io/ecommerce-react-lustres/
-
-
-
-
 <h3 align="left">Connect with me:</h3>
 <p>valeriapaulinalustres@yahoo.com.ar</p>
 <p align="left">
