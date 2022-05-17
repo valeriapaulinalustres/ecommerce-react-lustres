@@ -34,7 +34,10 @@ function ItemDetail({ item }) {
     return (
         <div className="detail-container">
             <div className="detail-container-son">
-                <img src={item.pictureUrl} className="detail-image" width="100%" />
+                <div className='container-img-crop'>
+                <img src={item.pictureUrl} className="detail-image crop" width="100%" />
+                </div>
+                
                 <div className="detail-details">
                     <div className="detail-main">
                         <h2 className="detail-title">{item.title}</h2>
