@@ -25,7 +25,7 @@
 
 
 <h3 align="left">You can visit my app here:</h3>
-https://ecommerce-react-lustres-qf36ozqqn-valeriapaulinalustres.vercel.app/
+https://ecommerce-react-lustres.vercel.app/
 
 
 <h3 align="left">Connect with me:</h3>
