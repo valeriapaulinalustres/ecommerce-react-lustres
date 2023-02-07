@@ -117,7 +117,7 @@ function Cart() {
               <CartItems key={index} title={item.nombre} price={item.precio} quantity={item.cantidad} id={item.id} pictureUrl={item.imagen} />
             ))}
           </div>
-          <a href={`https://wa.me/5491121714493/?text=${saleResume}`} target="_blank"
+          <a href={`https://wa.me/5491160127926/?text=${saleResume}`} target="_blank"
 class="icono-contacto">
           <button className='button' onClick={handleFinalizarCompra}>Finalizar compra</button>
           </a>
