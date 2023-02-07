@@ -20,7 +20,8 @@ function Cart() {
     cargarCarritoDeLocalStorage();
     cargarDeseosDeLocalStorage()
   })
-
+   
+  
   const handleFinalizarCompra = () => {
     if (usuario.nombre) {
       const ventaCollection = collection(db, "ventas")
@@ -92,6 +93,10 @@ function Cart() {
     });
   }
 
+  let saleResume = "Buenos días, quisiera comprar: " + compra.map(el=>
+    "%20" + el.nombre + "%20unidades:%20" + el.cantidad   
+     ).toString() + ". Total: $ " + suma
+
   return (
     <Container>
       <h2>Bienvenido al carrito de compras</h2>
@@ -112,7 +117,10 @@ function Cart() {
               <CartItems key={index} title={item.nombre} price={item.precio} quantity={item.cantidad} id={item.id} pictureUrl={item.imagen} />
             ))}
           </div>
+          <a href={`https://wa.me/5491121714493/?text=${saleResume}`} target="_blank"
+class="icono-contacto">
           <button className='button' onClick={handleFinalizarCompra}>Finalizar compra</button>
+          </a>
         </>
         )
       }
@@ -143,3 +151,4 @@ justify-content: space-between;
 align-items: center;
 `
 
+ 
