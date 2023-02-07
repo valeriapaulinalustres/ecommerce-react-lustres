@@ -23,6 +23,8 @@
 
 -Responsive Design
 
+-Send sale resume by WhatsApp
+
 
 <h3 align="left">You can visit my app here:</h3>
 https://ecommerce-react-lustres.vercel.app/
