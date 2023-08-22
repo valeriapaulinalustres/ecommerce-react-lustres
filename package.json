@@ -1,5 +1,5 @@
 {
-  "homepage":"https://ecommerce-react-lustres-qn2htb5ar-valeriapaulinalustres.vercel.app/",
+  "homepage": "https://ecommerce-react-lustres-qn2htb5ar-valeriapaulinalustres.vercel.app/",
   "name": "ecommerce-react-lustres",
   "version": "0.1.0",
   "private": true,
@@ -14,6 +14,7 @@
     "bootstrap": "^5.1.3",
     "firebase": "^9.6.11",
     "mdb-ui-kit": "^3.11.0",
+    "msw": "^1.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",

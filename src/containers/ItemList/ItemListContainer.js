@@ -9,7 +9,7 @@ import WishContext from '../../context/WishContext';
 import { useContext } from 'react';
 
 
-export function ItemListContainer({ greeting }) {
+export default function ItemListContainer({ greeting }) {
     const { cargarCarritoDeLocalStorage } = useContext(CartContext);
     const { cargarDeseosDeLocalStorage } = useContext(WishContext);
 
@@ -40,6 +40,7 @@ export function ItemListContainer({ greeting }) {
                     return product;
                 })
                 setProducts(lista)
+                console.log(lista)
             })
             .catch(() => {
                 console.log("error")

@@ -97,7 +97,7 @@ function Login() {
       <input type="number" placeholder='Teléfono' ref={valueTel} className="form-input" />
       <input type="email" placeholder='email' ref={valueEmail} className="form-input" />
       <input type="email" placeholder='confirmar email' ref={valueEmailConfirm} className="form-input" />
-      <button type="submit" onClick={handleLogin} className="button form-button"><NavLink to='/' className="navbar-link">Login</NavLink></button>
+      <button type="submit" onClick={handleLogin} data-testid='login' className="button form-button"><NavLink to='/' className="navbar-link">Login</NavLink></button>
 
 
     </form>
